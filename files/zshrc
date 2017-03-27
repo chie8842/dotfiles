@@ -30,7 +30,7 @@ esac
 
 
 # キーバインドをVi化
-#bindkey -v
+bindkey -e
 
 
 # プロンプトの設定
@@ -203,7 +203,7 @@ unsetopt CSH_NULL_GLOB
 unsetopt DVORAK
 
 # ZLE がロードされていてこのオプションがオンになっているのは'bindkey -e'と等価に扱われ、 VI オプションが解除される
-unsetopt EMACS
+setopt EMACS
 
 # = のファイル名生成が利用される
 setopt EQUALS
@@ -275,7 +275,7 @@ unsetopt HIST_FIND_NO_DUPS
 unsetopt HIST_IGNORE_ALL_DUPS
 
 # 直前のイベントと全く同じものの場合、コマンド行をヒストリリストに加えない
-unsetopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_DUPS
 
 # 行の最初の文字がスペースの場合、もしくはスペースから開始される拡張エイリアスの場合に、コマンド行をヒストリリストから削除する
 unsetopt HIST_IGNORE_SPACE
@@ -284,7 +284,7 @@ unsetopt HIST_IGNORE_SPACE
 unsetopt HIST_NO_FUNCTIONS
 
 # history (fc -l) コマンドをヒストリリストから取り除く
-unsetopt HIST_NO_STORE
+setopt HIST_NO_STORE
 
 # ヒストリリストに追加するときに、各コマンド行の余計な空白を取り除く
 setopt HIST_REDUCE_BLANKS
@@ -305,7 +305,7 @@ unsetopt IGNORE_BRACES
 unsetopt IGNORE_EOF
 
 # このオプションがセットされると、APPEND_HISTORYのように、新しいヒストリ行は$HISTFILEにインクリメンタルに(入力されるとすぐに)追加されるようになる
-unsetopt INC_APPEND_HISTORY
+setopt INC_APPEND_HISTORY
 
 # 対話的なシェルであることを意味する
 # unsetopt INTERACTIVE
@@ -398,7 +398,7 @@ unsetopt PATH_DIRS
 setopt POSIX_BUILTINS
 
 # 補完リストその他でも8ビット文字を表示する
-unsetopt PRINT_EIGHT_BIT
+setopt PRINT_EIGHT_BIT
 
 # セットされているとき、 '!' をプロンプト拡張で特殊文字として扱う
 setopt PROMPT_BANG
@@ -446,7 +446,7 @@ unsetopt RM_STAR_SILENT
 unsetopt RM_STAR_WAIT
 
 # このオプションはヒストリファイルから新しいコマンドをインポートするのと、入力したコマンドをヒストリファイルに書き出すのの両方を行う
-unsetopt SHARE_HISTORY
+setopt SHARE_HISTORY
 
 # ファイル名拡張(~拡張など)は、変数拡張やコマンド置換、計算拡張やブレース拡張の前に行う
 unsetopt SH_FILE_EXPANSION
@@ -491,7 +491,7 @@ setopt UNSET
 unsetopt VERBOSE
 
 # ZLE がロードされていると、このオプションをセットするのは 'bindkey -v' と同じ効果を持つ
-setopt VI
+unsetopt VI
 
 # 実行されるコマンドと引数を表示する
 unsetopt XTRACE

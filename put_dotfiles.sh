@@ -5,12 +5,12 @@ for file in files/*; do
     name=`basename ${file}`
     echo $name
     if [ ! -e ~/$name ]; then
-      echo "exists"
+      echo "$name exists"
       mkdir -p ~/backup
-      cp -r ~/.$name ~/backup/$name.$date
+      cp -pr ~/.$name ~/backup/$name.$date
     else
-      echo "not exists"
+      echo "$name not exists"
     fi
-#    cp -r $file ~/.$name
+#    cp -pr $file ~/.$name
 done
 
