@@ -7,7 +7,8 @@ export GOPATH=$HOME/go
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+#export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export LANG=ja_JP.UTF-8
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib/
 
@@ -79,6 +80,7 @@ alias ll="ls -l"
 alias grep='grep --color'
 alias less='less -X -R'
 
+alias vim="vi"
 #alias vim='/Applications/MacVim.app/Contents/MacOS/mvim'
 #alias cvim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
@@ -446,7 +448,7 @@ unsetopt RM_STAR_SILENT
 unsetopt RM_STAR_WAIT
 
 # このオプションはヒストリファイルから新しいコマンドをインポートするのと、入力したコマンドをヒストリファイルに書き出すのの両方を行う
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
 
 # ファイル名拡張(~拡張など)は、変数拡張やコマンド置換、計算拡張やブレース拡張の前に行う
 unsetopt SH_FILE_EXPANSION
