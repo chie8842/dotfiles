@@ -1,3 +1,24 @@
+[core]
+	excludesfile = /Users/chiehayashida/.gitignore_global
+	editor = vim -c \"set fenc=utf-8\"
+	precomposeunicode = true
+	quotepath = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [user]
-	email = chie8842@gmail.com
-	name = chie hayashida
+	name = chie-hayashida
+	email = chie-hayashida@retty.me
+[commit]
+	template = /Users/chiehayashida/.stCommitMsg
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+diffw = diff --word-diff
+diffn = diff --name-only
