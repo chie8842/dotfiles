@@ -1,0 +1,11 @@
+ServerAliveInterval 300
+TCPKeepAlive yes
+Host *.compute.amazonaws.com
+    IdentityFile    ~/.ssh/dpi-common.pem
+    User            hadoop
+    LocalForward    8080    localhost:80
+    LocalForward    9100    localhost:9100
+    LocalForward    9101    localhost:9101
+    ForwardAgent    yes
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null

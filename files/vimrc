@@ -24,15 +24,7 @@ call dein#add('Shougo/neosnippet')
 "call dein#add('altercation/vim-colors-solarized')
 call dein#add('crusoexia/vim-monokai')
 call dein#add('scrooloose/nerdtree')
-
-"    NeoBundle 'Shougo/neosnippet-snippets'
-"      NeoBundle 'tpope/vim-fugitive'
-"        NeoBundle 'ctrlpvim/ctrlp.vim'
-"	  NeoBundle 'flazz/vim-colorschemes'
-"	    NeoBundle 'altercation/vim-colors-solarized'
-"	      " You can specify revision/branch/tag.
-"	      "   NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-	      "
+call dein#add('tpope/vim-obsession')
 
 " (中略)
 
@@ -60,7 +52,7 @@ set backspace=indent,eol,start
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
-set nobackup
+"set nobackup
 " スワップファイルを作らない
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
