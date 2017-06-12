@@ -25,7 +25,8 @@ call dein#add('Shougo/neosnippet')
 call dein#add('crusoexia/vim-monokai')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-obsession')
-
+call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
+call dein#add('andviro/flake8-vim')
 " (中略)
 
 call dein#end()
