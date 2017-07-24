@@ -25,8 +25,13 @@ call dein#add('Shougo/neosnippet')
 call dein#add('crusoexia/vim-monokai')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-obsession')
+call dein#add('plasticboy/vim-markdown')
+call dein#add('kannokanno/previm')
+call dein#add('tyru/open-browser.vim')
+call dein#add('godlygeek/tabular')
 
-" (中略)
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Firefox'
 
 call dein#end()
 
@@ -568,6 +573,17 @@ if has('unix')
     endfunction
     nmap ,ssh :call Scp_edit("")<LEFT><LEFT>
 endif
+
+"JSONを整形する
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq \"" . l:arg . "\""
+endfunction
 
 "挿入モードで",date",',time'で日付、時刻挿入
 inoremap ,date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
