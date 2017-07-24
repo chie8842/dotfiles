@@ -32,6 +32,8 @@ call dein#add('godlygeek/tabular')
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Firefox'
+call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
+call dein#add('andviro/flake8-vim')
 
 call dein#end()
 
