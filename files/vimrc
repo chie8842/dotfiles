@@ -21,17 +21,23 @@ call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/neocomplete')
+call dein#add('Shougo/neosnippet-snippets')
 "call dein#add('altercation/vim-colors-solarized')
 call dein#add('crusoexia/vim-monokai')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-obsession')
-call dein#add('plasticboy/vim-markdown')
+"call dein#add('plasticboy/vim-markdown')
 call dein#add('kannokanno/previm')
 call dein#add('tyru/open-browser.vim')
 call dein#add('godlygeek/tabular')
+call dein#add('AndrewRadev/linediff.vim')
+call dein#add('elzr/vim-json')
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Firefox'
+let g:vim_markdown_folding_level = 6
 call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
 call dein#add('andviro/flake8-vim')
 
@@ -483,10 +489,10 @@ endif
 
 "Vimを終了しても undo 履歴を復元する
 "http://vim-users.jp/2010/07/hack162/
-"if has('persistent_undo')
-    "set undodir=./.vimundo,~/.vimundo
-    "set undofile
-"endif
+if has('persistent_undo')
+    set undodir=./.vimundo,~/.vimundo
+    set undofile
+endif
 
 "Makeやgrepでcwindowを自動でひらくようにする
 if v:version >= 700
@@ -681,3 +687,39 @@ if isdirectory($HOME . '/.vim/plugged/FuzzyFinder')
     nmap fc :FufMruCmd<CR>
 endif
 
+"80文字目より右の背景を薄くする
+let &colorcolumn=join(range(81,999),",")                                                                                                                                                                                         
+hi ColorColumn ctermbg=235 guibg=#2c2d27 
+
+"JSONの整形
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq \"" . l:arg . "\""
+endfunction
+
+" NeoSnippet Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
