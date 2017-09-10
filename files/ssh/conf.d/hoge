@@ -1,0 +1,4 @@
+Host hoge
+  HostName hoge.example.com
+  User hoge
+  IdentityFile ~/.ssh/id.pem
