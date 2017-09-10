@@ -1,109 +1,0 @@
-[2017_0422_180351_N] [1m[7m%[27m[1m[0m                                                                                                                                                                                                                                              D[?2004hpw[?2004l
-[2017_0422_180351_N] hayashida
-[2017_0422_180351_N] [1m[7m%[27m[1m[0m                                                                                                                                                                                                                                              ls2004l
-[2017_0422_180351_N] ations[39;49m[0m                        [36mDownloads[39;49m[0m                           [36mMusic[39;49m[0m                               [36mbin[39;49m[0m                                 [36mwork[39;49m[0m
-[2017_0422_180351_N] [36mDesktop[39;49m[0m                             [36mLibrary[39;49m[0m                             [36mPictures[39;49m[0m                            [36mdpi[39;49m[0m                                 work:memo:01_fullimport_to_hdfs.log
-[2017_0422_180351_N] [36mDocuments[39;49m[0m                           [36mMovies[39;49m[0m                              [36mPublic[39;49m[0m                              [36msqoop-hadoop[39;49m[0m
-[2017_0422_180411_N] 27m[1m[0m                                                                                                                                                                                                                                              ps[?2004l
-[2017_0422_180411_N] PPID   C STIME   TTY           TIME CMD
-[2017_0422_180411_N] /launchd
-[2017_0422_180411_N] 0    37     1   0 14 417  ??         1:41.51 /usr/libexec/UserEventAgent (System)
-[2017_0422_180411_N] 0    38     1   0 14 417  ??         0:21.48 /usr/sbin/syslogd
-[2017_0422_180411_N] 0    40     1   0 14 417  ??         0:04.39 /Applications/ESET Endpoint Security.app/Contents/MacOS/esets_ctl
-[2017_0422_180411_N] 0    41     1   0 14 417  ??         0:16.18 /System/Library/PrivateFrameworks/Uninstall.framework/Resources/uninstalld
-[2017_0422_180411_N] 0    42     1   0 14 417  ??         0:18.29 /usr/libexec/kextd
-[2017_0422_180411_N] 0    43     1   0 14 417  ??         2:59.88 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
-[2017_0422_180411_N] 80     1   0 14 417  ??         1:36.52 /usr/libexec/opendirectoryd
-[2017_0422_180411_N] 0    81     1   0 14 417  ??         0:00.75 /usr/sbin/wirelessproxd
-[2017_0422_180411_N] 0    83     1   0 14 417  ??         0:23.67 /System/Library/PrivateFrameworks/ApplePushService.framework/apsd
-[2017_0422_180411_N] 0    84     1   0 14 417  ??         0:00.01 /Library/Privilegrdial-pipe-token=3E8F373EA38887819C7208D67C14E970 --lang=ja --extension-process --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=false,disallowFetchForDocWrittenScriptsInMainFrameOnSlowConnections=false --enable-pinch --num-raster-threads=2 --enable-gpu-rasterization --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,34037;0,11,34037;0,12,34037;0,13,3553;0,14,3553;0,15,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3riptsInMainFrameOnSlowConnections=false --enable-pinch --num-raster-threads=2 --enable-gpu-rasterization --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,34037;0,11,34037;0,12,34037;0,13,3553;0,14,3553;0,15,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,34037;1,11,34037;1,12,34037;1,13,3553;1,14,3553;1,15,3553;2,0,3553;2,1rittenScriptsInMainFrame=false,disallowFetchForDocWrittenScriptsInMainFrameOnSlowConnections=false --enable-pinch --num-raster-threads=2 --enable-gpu-rasterization --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,34037;0,11,34037;0,12,34037;0,13,3553;0,14,3553;0,15,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,34037;1,11,34037;1,12,34037;1,13,3553;1,14,3553;1,15,3553;2,0,3553;2,1,3553;2,2,3553;2,3ntlog.csv/part-00000-5062e2bf-3407-4f3f-bebe-e49634f342f8-c000.csv
-[2017_0422_180411_N] 
-[2017_0422_180411_N] cations/iTerm.app/Contents/MacOS/iTerm2 --server login -fp chiehayashida
-[2017_0422_180411_N] tach -t 0
-[2017_0422_180411_N] ers/chiehayashida/work/memo/20170423_数学カフェ.md
-[2017_0422_180411_N] p chiehayashida
-[2017_0422_180411_N] w
-[2017_0422_180411_N] chiehayashida
-[2017_0422_180421_N]  27m[1m[0m                                                                                                                                                                                                                                              27m[1m[0m                                                                                                                                                                                                                                              27m[1m[0m                                                                                                                                                                                                                                              27m[1m[0m                                                                                                                                                                                                                                              27m[1m[0m                                                                                                                                                                                                                                              27m[1m[0m                                                                                                                                                                                                                                              p ps[?2004l
-[2017_0422_180421_N] PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND
-[2017_0422_180421_N] ibrary/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
-[2017_0422_180421_N] root                80   6.4  0.1  2516552  10516   ??  Ss   14 417    1:36.57 /usr/libexec/opendirectoryd
-[2017_0422_180421_N] ea
-[2017_0422_180421_N] chiehayashida    51418   2.1  0.1  2509180  23108   ??  S     6:04PM   0:00.18 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdwo
-[2017_0422_180421_N] chiehayashida    43599   2.0  0.9  3647284 147724   ??  S    水11PM  32:34.91 /Applications/Google Chrome.app/Contents/Versions/57.0.2987.133/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper --type=renderer --field-trial-han
-[2017_0422_180421_N] root               311   1.6  0.7   825692 121004   ??  S    14 417   92:01.11 /Applications/.esets/Contents/MacOS/esets_daemon --scan-process
-[2017_0422_180421_N] app/Contents/MacOS/Google Chrome Helper --type=renderer --field-trial-han
-[2017_0422_180421_N] _windowserver      144   0.5  0.6  6183116 105384   ??  Ss   14 417 57.0.2987.133/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper --type=renderer --field-trial-han
-[2017_0422_180421_N] chiehayashida    50890   0.0  0.4  3993728  61704   ??  S     1:23PMivateFrameworks/CoreSpotlight.framework/Support/com.apple.spotlight.IndexAgent
-[2017_0422_180421_N] ew
-[2017_0422_180422_N] aslmanager -s /var/log/eventmonitor
-[2017_0422_180422_N] rk/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker-sizing -c MDSSizingWorker -m com.apple
-[2017_0422_180422_N] root             50547   0.0  0.1  2637124  17712   ??  Ss    9:39PM   0:18.75 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
-[2017_0422_180422_N] chiehayashida    50543   0.0  0.2  3431780  36208   ??  S     9:39PM   0:22.85 /Applications/Google Chrome.app/Contents/Versions/57.0.2987.133/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper --type=renderer --field-trial-han
-[2017_0422_180422_N] chiehayashida    50505   0.0  0.0  2552440   4668   ??  S     9:34PM   0:07.73 /Library/Input Methods/GoogleJapaneseInput.app/Contents/Resources/GoogleJapaneseInputRenderer.app/Contents/MacOS/GoogleJapaneseInputRenderer
-[2017_0422_180422_N] al-han
-[2017_0422_180422_N] chiehayashida    50200   0.0  1.0  4328116 172396   ??  S     6:18PM   2:35.03 /Applications/Google Chrome.app/Contents/Versions/57.0.2987.133/Goplications/Google Chrome.app/Contents/Versions/57.0.2987.133/Google Chrome Helper.apLibrary/PrivateFrameworks/SafariSafeBrowsing.framework/com.apple.Safari.SafeBrowsing.Service
-[2017_0422_180422_N] chiehayashida    45289   0.0  0.1  4055856  24088   ??  Ss   木05PM   1:37.09 /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Conteapp/Contents/Versions/57.0.2987.133/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper --type=renderer --field-trial-han
-[2017_0422_180422_N] fp chiehayashida
-[2017_0422_180422_N] ontents/MacOS/iTerm2 --server login -fp chiehayashida
-[2017_0422_180422_N] fp chiehayashida
-[2017_0422_180422_N] ontents/MacOS/iTerm2 --server login -fp chiehayashida
-[2017_0422_180422_N] m/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdate_download_service
-[2017_0422_180422_N] /MacOS/CloudKeychainProxy
-[2017_0422_180422_N] chiehayashida    41123   0.0  0.1  3488480  18748   ??  S    火07PM   3:32.20 /Applications/Google Chrome.app/Contents/Versions/57.0.2987.133/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper --type=renderer --field-trial-han
-[2017_0422_180422_N] pf chiehayashida
-[2017_0422_180422_N] chiehayashida    40642   0.0  0.0  2503644    168   ??  Ss   火04PM   0:00.32 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
-[2017_0422_180422_N] rettyadmin       40627   0.0  0.0  2469596    548   ??  S    火04PM   0:00.75 /usr/sbin/distnoted agent
-[2017_0422_180422_N] .CommerceKit.TransactionService.xpc/Contents/MacOS/com.apple.CommerceK
-[2017_0422_180422_N] chiehayashida    40609   0.0  0.0  2497672    276   ??  S    火04PM   0:11.86 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storeinappd
-[2017_0422_180422_N] chiehayashida    40607   0.0  0.0  4514176   6432   ??  S    火04PM   6:55.41 /Applications/Kobito.app/Contents/MacOS/Kobito
-[2017_0422_180422_N] chiehayashida    39403   0.0  0.0  2470180    804   ??  S    火10AM   0:00.21 /System/Library/PrivateFrameworks/KerberosHelper/Helpers/DiskUnmountWatcher
-[2017_0422_180422_N] _spotlight       39396   0.0  0.0  2497564    772   ??  S    火10AM   0:02.39 /usr/libt
-[2017_0422_180422_N] root               364   0.0  0.0  2470232   1528   ??  Ss   14 417    0:01.45 /usr/sbin/filecoordinationd
-[2017_0422_180422_N] chiehayashida      362   0.0  0.0  2504252   7988   ??  S    14 417    0:29.17 /usr/libexec/sharingd
-[2017_0422_180422_N] chiehayashida      359   0.0  0.0  2469584    432   ??  S    14 417    0:00.65 /System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoteagent
-[2017_0422_180422_N] d
-[2017_0422_180422_N] chiehayashida      346   0.0  0.0  3710952   5084   ??  S    14 417    5:32.29 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storedownloadd
-[2017_0422_180422_N] root               345   0.0  0.1  2864652  23280   ??  Ss   14 417   14:33.63 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/installd
-[2017_0422_180422_N] root               343   0.0  0.0  2470444   1744   ??  Ss   14 417    0:00.49 /System/Library/CoreServices/backupd.bundle/Contents/Resources/TMCacheDelete
-[2017_0422_180422_N] chiehayashida      332   0.0  0.0  2497932   1868   ??  S    14 417    0:02.80 /System/Library/PrivateFrameworks/PassKitCore.framework/passd
-[2017_0422_180422_N] chiehayashida      329   0.0  0.0  2495228    260   ??  S    14 417    0:00.57 /System/Library/PrivateFrameworks/AskPermission.framework/Versions/A/Resources/askpermissiond
-[2017_0422_180422_N] chiehayashida      323   0.0  0.0  2487096   1136   ??  S    14 529424   5428   ??  S    14 417    3:02.43 /System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Support/fontd
-[2017_0422_180422_N] chiehayashida      317   0.0  0.0  2495208    908   ??  S    14 417    0:00.78 /System/Library/CoreServices/SocialPushAgent.app/Contents/MacOS/SocialPushAgent
-[2017_0422_180422_N] SystemUIServer
-[2017_0422_180422_N] chiehayashida      312   0.0  0.1  2760344  17340   ??  S    14 417    2:05.81 /System/Library/CoreServices/Dock.app/Contents/MacOS/Dock
-[2017_0422_180422_N] root               310   0.0  0.0   671204    248   ??  S    14 417    0:00.50 /Applications/.esets/Contents/MacOS/esets_daemon
-[2017_0422_180422_N] chiehayashida      294   0.0  0.0  2497584   6392   ??  S    14 417    0:26.46 /usr/sbin/usernoted
-[2017_0422_180422_N] chiehayashida      288   0.0  0.0  2498180   2148   ??  S    14 417    0:01.91 /System/Library/PrivateFrameworks/IMCore.framework/imagent.app/Contents/MacOS/imagent
-[2017_0422_180422_N] 2504000   5348   ??  S    14 417    0:10.41 /usr/libexec/lsd
-[2017_0422_180422_N] 0.0  2503492   4540   ??  Ss   14 417    1:21.56 /usr/libexec/symptomsd
-[2017_0422_180422_N] root               203   0.0  0.0  2461468    264   ??  Ss   14 417    0:00.51 /usr/libexec/thermald
-[2017_0422_180422_N] chiehayashida    51590   0.0  0.0  2423376    232   ??  R     6:04PM   0:00.00 (date)
-[2017_0422_180422_N] root  ivate/etc/ntp-restrict.conf -n -g -p /var/run/ntpd.pid -f /var/db/ntp.drift
-[2017_0422_180422_N] s   14 417    0:00.35 /System/Library/CoreServices/CrashReporterSupportHelper server-init
-[2017_0422_180422_N] root               196   0.0  0.0  2501964   5048   ??  Ss   14 417    0:03.70 /usr/libexec/lsd runAsRoot
-[2017_0422_180422_N] 417    0:02.35 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/authd.xpc/Contents/MacOS/authd
-[2017_0422_180422_N] root               115   0.0  0.0  2534892   3628   ??  Ss   14 417    0:11.33 /System/Library/CoreServices/coreservicesd
-[2017_0422_180422_N] _distnote          109   0.0  0.0  2469984   1128   ??  Ss   14 417    0:13.17 /usr/sbin/distnoted daemon
-[2017_0422_180422_N] root               107   0.0  0.0  2496768   2652   ??  Ss   14 417    0:02.37 /usr/libexec/AirPlayXPCHelper
-[2017_0422_180422_N] root               106   0.0  0.0  2496648   1216   ??  Ss   14 417    0:01.53 /usr/libexec/corebrightnessd --launchd
-[2017_0422_180422_N] root               103   0.0  0.0  2469708    216   ??  Ss   14 417    0: 2469488    688   ??  Ss   14 417    0:00.42 /System/Library/CoreServices/logind
-[2017_0422_180422_N] chiehayashida      101   0.0  0.2  2649392  35188   ??  Ss   14 417    1:59.38 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow console
-[2017_0422_180422_N] root               100   0.0  0.0  2497196   1872   ??  Ss   14 417    0:01.04 /System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/Support/revisiond
-[2017_0422_180422_N] 88   0.0  0.0  2497760   3284   ??  Ss   14 417    0:23.73 /usr/sbin/securityd -i
-[2017_0422_180422_N] _usbmuxd            87   0.0  0.0  2495408    500   ??  Ss   14 417    0:00.32 /System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/Resources/usbmuxd -launchd
-[2017_0422_180422_N] root                86   0.0  0.0  2497152   5208   ??  Ss   14 417    0:27.65 /System/Library/CoreServices/launchservicesd
-[2017_0422_180422_N] root                85   0.0  0.0  2496152    272   ??  Ss   14 417    0:00.86 /System/Library/PrivateFrameworks/Noticeboard.framework/Versions/A/Resources/nbstated
-[2017_0422_180422_N] root                84   0.0  0.0  2452608      8   ??  Ss   14 417    0:00.01 /Library/PrivilegedHelperTools/com.docker.vmnetd
-[2017_0422_180422_N] root                38   0.0  0.0  2470852    748   ??  Ss   14 417    0:21.48 /usr/sbin/syslogd
-[2017_0422_180422_N] root                37   0.0  0.0  2/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdwo
-[2017_0422_180422_N] chiehayashida    51417   0.0  0.0  2476724   6096   ??  S     6:04PM   0:00.04 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker -s mdworker -c MDSImporterWorker -m com.apple.mdwo
-[2017_0422_180422_N] exec/diskmanagementd
-[2017_0422_180422_N] ontents/MacOS/MacJREInstaller MODE=AU
-[2017_0422_180422_N] chiehayashida    51395   0.0  0.1  2558072  14252   ??  S     6:03PM   0:00.13 /System/Library/CoreServices/backupd.bundle/Contents/Resources/TMHelperAgent.app/Contents/MacOS/TMHelperAgent -offer
-[2017_0422_180422_N] chiehayashida    51348   0.0  1.3  3652676 220336   ??  S     5:58PM   0:06.16 /Applications/Google Chrome.app/Contents/Versions/57.0.2987.133/Google Chrome Helper.app/Contents/MacOS/Google Chrome Help1044   1236   ??  S     5:57PM   0:00.04 /bin/sh -c while read -r LINE; do echo "[$(date +"%Y_%m%d_%H%M%S_%N")] ${LINE}" >> ${HOME}/.tmux/log/$(date +20170422-175745)-1-2.1.log; done 
-[2017_0422_180422_N] /A/XPCServices/com.apple.iCloudHelper.xpc/Contents/MacOS/com.apple.iCloudHelper
-[2017_0422_180422_N] chiehayashida    51245   0.0  0.9  3623248 153220   ??  S     5:24PM   1:12.42 /Applications/Google Chrome.app/Contents/Versions/57.0.2987.133/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper --type=renderer --field-trial-han
-[2017_0422_180422_N] root             51219   0.0  0.0  2495080   3392   ??  Ss    4:57PM   0:00.05 /usr/sbin/ocspd
-[2017_0422_180422_N] root             51201   0.0  0.0  2470312   4260   ??  Ss    4:43PM   0:00.13 /System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd
-[2017_0422_180422_N] chiehayashida    51200   0.0  0.0  2503644   7692   ??  Ss    4:43PM   0:00.06 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
