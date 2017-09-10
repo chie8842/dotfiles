@@ -1,16 +1,27 @@
 #/bin/bash
 date=`date +%Y%m%d-%k%M%S`
 
-for file in files/*; do
-    name=`basename ${file}`
-    echo $name
-    if [ ! -e ~/$name ]; then
-      echo "$name exists"
-      mkdir -p ~/backup
-      cp -pr ~/.$name ~/backup/$name.$date
+array=(
+    ".vimrc"
+    ".zshrc"
+    ".tmux.conf"
+    ".gitconfig"
+    ".jupyter"
+    ".ssh"
+    ".vnc"
+    ".zsh"
+    ".tmux"
+)
+
+for file in ${array[@]}; do
+    echo $file
+    if [ -e ${HOME}/$file ]; then
+      echo "${HOME}/$file exists"
+      mkdir -p ${HOME}/backup
+      cp -pr ${HOME}/$file ${HOME}/backup/$file.$date
     else
-      echo "$name not exists"
+      echo "${HOME}/$file not exists"
     fi
-#    cp -pr $file ~/.$name
+    ln -sfv files/$file ${HOME}/$file
 done
 
