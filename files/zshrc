@@ -1,12 +1,3 @@
-# .zshrc file
-
-# ZIM configuration
-setopt EXTENDED_GLOB
-for template_file ( ${ZDOTDIR:-${HOME}}/.zim/templates/* ); do
-  user_file="${ZDOTDIR:-${HOME}}/.${template_file:t}"
-  touch ${user_file}
-  ( print -rn "$(<${template_file})$(<${user_file})" >! ${user_file} ) 2>/dev/null
-done
 
 export PATH="/usr/local/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH=$PYENV_ROOT/bin:$PATH:/usr/local/go/bin:~/go/bin
@@ -53,6 +44,7 @@ bindkey -e
 # プロンプトの設定
 autoload -U colors
 colors
+autoload history-search-end
 
 local p_mark="%B%(?, %F{green}, %F{red})%#%f%b"
 
@@ -71,6 +63,16 @@ SPROMPT="%F{yellow}%r is correct? [(n)o, (y)es, (a)bort, (e)dit]:%f"
 autoload -U compinit
 compinit
 
+# gitのブランチ情報などを表示
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 # ls 補完リスト色設定
 export LSCOLORS=gxfxcxdhbxegehabahhfhg
@@ -517,5 +519,4 @@ unsetopt VI
 unsetopt XTRACE
 
 # zsh line editor を利用する
-#setopt ZLE
-
+setopt ZLE
