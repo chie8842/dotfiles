@@ -57,11 +57,12 @@ PROMPT2="%F{magenta}%_->%f"
 RPROMPT="%F{yellow}[%d]%f"
 SPROMPT="%F{yellow}%r is correct? [(n)o, (y)es, (a)bort, (e)dit]:%f"
 
-
+# gitの補完
+fpath=(~/.zsh/completion $fpath)
 
 # 補完入力の有効化
 autoload -U compinit
-compinit
+compinit -u
 
 # gitのブランチ情報などを表示
 autoload -Uz vcs_info
