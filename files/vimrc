@@ -34,6 +34,7 @@ call dein#add('tyru/open-browser.vim')
 call dein#add('godlygeek/tabular')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('elzr/vim-json')
+call dein#add('shinespark/vim-list2tree')
 
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Firefox'
