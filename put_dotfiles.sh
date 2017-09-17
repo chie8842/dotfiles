@@ -22,6 +22,6 @@ for file in ${array[@]}; do
     else
       echo "${HOME}/$file not exists"
     fi
-    ln -sfv files/$file ${HOME}/$file
+    ln -sfv "$(pwd)"/files/$file ${HOME}/$file
 done
 
