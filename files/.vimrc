@@ -28,17 +28,15 @@ call dein#add('Shougo/neosnippet-snippets')
 call dein#add('crusoexia/vim-monokai')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-obsession')
-"call dein#add('plasticboy/vim-markdown')
+call dein#add('plasticboy/vim-markdown')
+call dein#add('dhruvasagar/vim-table-mode')
 call dein#add('kannokanno/previm')
 call dein#add('tyru/open-browser.vim')
 call dein#add('godlygeek/tabular')
 call dein#add('AndrewRadev/linediff.vim')
 call dein#add('elzr/vim-json')
 call dein#add('shinespark/vim-list2tree')
-
-au BufRead,BufNewFile *.md set filetype=markdown
-let g:previm_open_cmd = 'open -a Firefox'
-let g:vim_markdown_folding_level = 6
+call dein#add('junegunn/vim-emoji')
 call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
 call dein#add('andviro/flake8-vim')
 
@@ -52,6 +50,22 @@ if dein#check_install()
   call dein#install()
 endif
 
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Firefox'
+
+" settings for vim-markdwon
+"let g:vim_markdown_folding_level = 6
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_override_foldtext = 0
+set conceallevel=2
+let g:vim_markdown_fenced_languages = ['python=py', 'bash=sh', 'c++=cpp', 'java=java', 'scala=scala', 'csharp=cs']
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_no_extensions_in_markdown = 1
+let g:vim_markdown_autowrite = 1
 
 syntax on
 set background=dark
@@ -81,6 +95,9 @@ set autoread
 set nostartofline
 " コマンドラインでTABで補完できるようにする
 set wildchar=<C-Z>
+
+" emoji settings
+set completefunc=emoji#complete
 
 " 見た目系
 " 行番号,ルーラーを表示
@@ -724,3 +741,20 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
+
+" settings for vim-table-mode
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+
