@@ -53,19 +53,6 @@ endif
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:previm_open_cmd = 'open -a Firefox'
 
-" settings for vim-markdwon
-"let g:vim_markdown_folding_level = 6
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_override_foldtext = 0
-set conceallevel=2
-let g:vim_markdown_fenced_languages = ['python=py', 'bash=sh', 'c++=cpp', 'java=java', 'scala=scala', 'csharp=cs']
-let g:vim_markdown_math = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_new_list_item_indent = 2
-let g:vim_markdown_no_extensions_in_markdown = 1
-let g:vim_markdown_autowrite = 1
 
 syntax on
 set background=dark
@@ -96,54 +83,10 @@ set nostartofline
 " コマンドラインでTABで補完できるようにする
 set wildchar=<C-Z>
 
-" emoji settings
-set completefunc=emoji#complete
-
-" 見た目系
-" 行番号,ルーラーを表示
-set number
-set ruler
-" 現在の行を強調表示
-set cursorline
-" 現在の行を強調表示（縦）
-"set cursorcolumn
-" 行末の1文字先までカーソルを移動できるように
-set virtualedit=onemore
-" インデントはスマートインデント
-set smartindent
-" ビープ音を可視化
-set visualbell
-" 括弧入力時の対応する括弧を表示
-set showmatch
-" ステータスラインを常に表示
-set laststatus=2
-" コマンドラインの補完
-set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
-" 括弧の対応をハイライト
-set showmatch
-" TAB,EOFなどを可視化する
-set list
-set listchars=tab:>-,extends:<,trail:-,eol:<
-" ウインドウタイトルを設定する
-set title
 
-" Tab系
-" 不可視文字を可視化(タブが「▸-」と表示される)
-set list listchars=tab:\▸\-
-" Tab文字を半角スペースにする
-set expandtab
-" 行頭以外のTab文字の表示幅（スペースいくつ分）
-set tabstop=2
-" 行頭でのTab文字の表示幅
-set shiftwidth=2
-" オートインデント
-set smartindent
-set autoindent
-" 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-set smarttab
 " zshを使う
 set shell=zsh
 
@@ -162,80 +105,6 @@ set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "自動文字数
-augroup WordCount
-    autocmd!
-    autocmd BufWinEnter,InsertLeave,CursorHold * call WordCount('char')
-augroup END
-let s:WordCountStr = ''
-let s:WordCountDict = {'word': 2, 'char': 3, 'byte': 4}
-function! WordCount(...)
-    if a:0 == 0
-        return s:WordCountStr
-    endif
-    let cidx = 3
-    silent! let cidx = s:WordCountDict[a:1]
-    let s:WordCountStr = ''
-    let s:saved_status = v:statusmsg
-    exec "silent normal! g\<c-g>"
-    if v:statusmsg !~ '^--'
-        let str = ''
-        silent! let str = split(v:statusmsg, ';')[cidx]
-        let cur = str2nr(matchstr(str, '\d\+'))
-        let end = str2nr(matchstr(str, '\d\+\s*$'))
-        if a:1 == 'char'
-            " ここで(改行コード数*改行コードサイズ)を'g<C-g>'の文字数から引く
-            let cr = &ff == 'dos' ? 2 : 1
-            let cur -= cr * (line('.') - 1)
-            let end -= cr * line('$')
-        endif
-        let s:WordCountStr = printf('%d/%d', cur, end)
-    endif
-    let v:statusmsg = s:saved_status
-    return s:WordCountStr
-endfunction
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"ステータスラインにコマンドを表示
-set showcmd
-"ステータスラインを常に表示
-set laststatus=2
-"ファイルナンバー表示
-set statusline=[%n]
-"ホスト名表示
-set statusline+=%{matchstr(hostname(),'\\w\\+')}@
-"ファイル名表示
-set statusline+=%<%F
-"変更のチェック表示
-set statusline+=%m
-"読み込み専用かどうか表示
-set statusline+=%r
-"ヘルプページなら[HELP]と表示
-set statusline+=%h
-"プレビューウインドウなら[Prevew]と表示
-set statusline+=%w
-"ファイルフォーマット表示
-set statusline+=[%{&fileformat}]
-"文字コード表示
-set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}]
-"ファイルタイプ表示
-set statusline+=%y
-"ここからツールバー右側
-set statusline+=%=
-"skk.vimの状態
-set statusline+=%{exists('*SkkGetModeStr')?SkkGetModeStr():''}
-"文字バイト数/カラム番号
-set statusline+=[%{col('.')-1}=ASCII=%B,HEX=%c]
-"現在文字列/全体列表示
-set statusline+=[C=%c/%{col('$')-1}]
-"現在文字行/全体行表示
-set statusline+=[L=%l/%L]
-"現在のファイルの文字数をカウント
-set statusline+=[WC=%{exists('*WordCount')?WordCount():[]}]
-"現在行が全体行の何%目か表示
-set statusline+=[%p%%]
-"レジスタの中身を表示
-"set statusline+=[RG=\"%{getreg()}\"]
 
 "-------エンコード------
 "エンコード設定
@@ -257,121 +126,6 @@ endif
 syntax on
 filetype plugin on
 filetype indent on
-
-"-------キー設定-------
-"矢印キーでは表示行単位で行移動する
-nmap <UP> gk
-nmap <DOWN> gj
-vmap <UP> gk
-vmap <DOWN> gj
-
-"他のvimにviminfoを送る
-"http://nanasi.jp/articles/howto/editing/rviminfo.html
-nmap ,vw :vw<CR>
-nmap ,vr :vr<CR>
-
-"ZZは強制的に書き込む
-map ZZ :wq!<CR>
-
-"C-Lでawkを呼び出す
-nmap <C-C><C-L> :w !awk 'BEGIN{n=0}{n+=$1}END{print n}'
-
-"C-P,C-Nでバッファ移動,C-Dでバッファ消去
-nmap <C-P> :bp<CR>
-nmap <C-N> :bn<CR>
-nmap <C-D> :bd<CR>
-
-"C-Nで新しいバッファを開く
-nmap <C-C><C-N> :new<CR>
-
-"C-L,C-Lでバッファリスト
-nmap <C-L><C-L> :ls<CR>
-"C-L,C-Rでレジスタリスト
-nmap <C-L><C-R> :dis<CR>
-"C-L,C-Kでキーマップリスト
-nmap <C-L><C-K> :map<CR>
-"C-L,C-Mでマークリスト
-nmap <C-L><C-M> :marks<CR>
-"C-L,C-Jでジャンプリスト
-nmap <C-L><C-J> :jumps<CR>
-"C-L,C-Hでコマンドヒストリ
-nmap <C-L><C-H> :his<CR>
-"C-L,C-Uでアンドゥヒストリ
-nmap <C-L><C-U> :undolist<CR>
-
-"C-W,sで横分割
-nmap <C-W>s :sp<CR>
-"C-W,vで縦分割
-nmap <C-W>v :vsp<CR>
-
-"C-W,oでファイルを指定して横分割、オープン
-nmap <C-W>o :sp
-"C-W,Oでファイルを指定して縦分割、オープン
-nmap <C-W>O :vp
-
-"C-W,好みの方向キーで新しくバッファを開く
-nmap <C-W><C-h> :vne<cr>
-nmap <c-w><c-j> :bel new<cr>
-nmap <c-w><c-k> :new<cr>
-nmap <c-w><c-l> :rightb vnew<cr>
-
-"C-W,eでファイルブラウザを横分割起動
-nmap <C-W>e :vsp<CR>:wincmd w<CR>:e! ./<CR>
-"C-W,Eでファイルブラウザを縦分割起動
-nmap <C-W>E :sp<CR>:wincmd w<CR>:e! ./<CR>
-
-"C-W,C-Aで現在のウインドウのみの表示
-nmap <C-W><C-A> :all<CR>
-
-"C-C,C-Rでカーソル語の置き換え
-nmap <C-C><C-R> yw:%s:<C-R>0::g<LEFT><LEFT>
-"C-C,rでYankした文字列との置き換え
-nmap <C-C>r :%s:<C-R>0::g<LEFT><LEFT>
-"C-C,gでカーソル語が存在する行の削除
-nmap <C-C>g yw:g:<C-R>0:d
-"C-C,Gでカーソル語が存在する行以外の削除
-nmap <C-C>G yw:v:<C-R>0:d
-",celで空白行の削除
-nmap ,cel :%s:^$\n:<CR>
-",cclでコメント行の削除
-nmap ,ccl :%s:^\("\\|#\\\|\*\).*$\n:<CR>
-",cdで現在編集中のファイルのあるディレクトリに変更
-nmap ,cd :cd %:h<CR>
-
-"コマンドモード時にカーソル移動するのに便利
-cnoremap <C-A> <Home>
-cnoremap <C-B> <Left>
-cnoremap <C-D> <Delete>
-cnoremap <C-E> <End>
-cnoremap <C-F> <Right>
-cnoremap <C-N> <Down>
-cnoremap <C-P> <Up>
-
-"<ESC>hでハイライトをOFFにする
-nmap <ESC><ESC> :noh<CR>
-
-"Insertmodeで<C-C>でESCと同義
-inoremap <C-C> <ESC>
-
-"<S-TAB>でexpandtabをトグル
-function Tab_switch()
-    if &expandtab =='1'
-        set noexpandtab
-    else
-        set expandtab
-    endif
-endfunction
-nmap <S-TAB> :call Tab_switch()<CR>
-
-"<ESC>wでnowrapをトグル
-function Wrap_switch()
-    if &wrap =='1'
-        set nowrap
-    else
-        set wrap
-    endif
-endfunction
-nmap <ESC>w :call Wrap_switch()<CR>
 
 "-------MENU-------
 "SSHを通してファイルオープン
@@ -742,19 +496,6 @@ if has('conceal')
 endif
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
 
-" settings for vim-table-mode
-function! s:isAtStartOfLine(mapping)
-  let text_before_cursor = getline('.')[0 : col('.')-1]
-  let mapping_pattern = '\V' . escape(a:mapping, '\')
-  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
-  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
-endfunction
 
-inoreabbrev <expr> <bar><bar>
-          \ <SID>isAtStartOfLine('\|\|') ?
-          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
-inoreabbrev <expr> __
-          \ <SID>isAtStartOfLine('__') ?
-          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-
-
+runtime! settings/common/*.vim
+runtime! settings/plugins/*.vim
