@@ -103,6 +103,8 @@ set wrapscan
 set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" Insertモード時のIME状態を保持しない
+inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 "自動文字数
 
