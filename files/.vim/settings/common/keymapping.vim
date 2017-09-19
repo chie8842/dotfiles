@@ -80,6 +80,53 @@ nmap ,cel :%s:^$\n:<CR>
 nmap ,ccl :%s:^\("\\|#\\\|\*\).*$\n:<CR>
 ",cdで現在編集中のファイルのあるディレクトリに変更
 nmap ,cd :cd %:h<CR>
+" ESC連打でハイライト解除
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+"-------VIM7以降--------
+"Tab操作
+if v:version >= 700
+    "15までタブを開く
+    set tabpagemax=15
+    "タブラインを常に表示する
+    "set showtabline=2
+    if has('unix')
+        nmap <ESC>t :tabnew<CR>
+        nmap <ESC>e :tabnew ./<CR>
+        nmap <ESC>n :tabn<CR>
+        nmap <ESC>p :tabp<CR>
+        nmap <ESC>o :tabo<CR>
+        nmap <ESC>d :tabd
+        if has('gui')
+            nmap <M-t> :tabnew<CR>
+            nmap <M-e> :tabnew ./<CR>
+            nmap <M-n> :tabn<CR>
+            nmap <M-p> :tabp<CR>
+            nmap <M-o> :tabo<CR>
+            nmap <M-d> :tabd
+        endif
+    elseif has('win32')
+        nmap <M-t> :tabnew<CR>
+        nmap <M-e> :tabnew ./<CR>
+        nmap <M-n> :tabn<CR>
+        nmap <M-p> :tabp<CR>
+        nmap <M-o> :tabo<CR>
+        nmap <M-d> :tabd
+    endif
+endif
+
+"sudoを忘れて権限のないファイルを編集した時\sudoで保存
+nmap ,sudo :w !sudo tee %<CR>
+
+"<C-C><C-d>で現在のバッファと保存前のファイルをdiffする
+nmap <C-C><C-D> :w !diff -u % -<CR>
+
+"<C-C><C-g>で現在のファイルをgit diffする
+nmap <C-C><C-G> :!git diff --  %<CR>
+
+"<C-C><C-D>でvimdiffを使用して現在のバッファと元ファイルを比較する
+command DiffOrigcmp vert new | set bt=nofile | r # | -1d_ | diffthis | wincmd p | diffthis
+nmap <C-C>d :DiffOrig<CR>
 
 "コマンドモード時にカーソル移動するのに便利
 cnoremap <C-A> <Home>
@@ -90,11 +137,15 @@ cnoremap <C-F> <Right>
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 
-"<ESC>hでハイライトをOFFにする
-nmap <ESC><ESC> :noh<CR>
+" 折り返し時に表示行単位での移動できるようにする
+nnoremap j gj
+nnoremap k gk
 
-"Insertmodeで<C-C>でESCと同義
+"挿入モードで<C-C>でESCと同義
 inoremap <C-C> <ESC>
+"挿入モードで",date",',time'で日付、時刻挿入
+inoremap ,date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
+inoremap ,time <C-R>=strftime('%H:%M')<CR>
 
 "<S-TAB>でexpandtabをトグル
 function Tab_switch()
@@ -116,3 +167,36 @@ function Wrap_switch()
 endfunction
 nmap <ESC>w :call Wrap_switch()<CR>
 
+"SSH越しにファイルを編集する
+if has('unix')
+    function Scp_edit(svr)
+        vsp
+        wincmd w
+        let sv = "e scp://" . a:svr . "/../"
+        exec sv
+    endfunction
+    nmap ,ssh :call Scp_edit("")<LEFT><LEFT>
+endif
+
+"JSONを整形する
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq \"" . l:arg . "\""
+endfunction
+
+",nnで絶対行に表示切り替え
+if has('unix')
+    function Relnum_switch()
+        if &relativenumber =='1'
+            set norelativenumber
+        else
+            set relativenumber
+        endif
+    endfunction
+    nmap ,nn :call Relnum_switch()<CR>
+endif
