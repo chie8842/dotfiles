@@ -2,6 +2,9 @@
 " settings for appearance
 "==============================================
 
+set background=dark
+" colorscheme monokai
+" set t_Co=256
 " 行番号,ルーラーを表示
 set number
 set ruler
@@ -29,7 +32,7 @@ set showmatch
 " ウインドウタイトルを設定する
 set title
 
-" Tab系
+"-------Tab系--------
 " Tab文字を半角スペースにする
 set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
@@ -41,3 +44,16 @@ set smartindent
 set autoindent
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 set smarttab
+
+"-------拡張--------
+"カーソルラインを派手にする
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+
+"completeoptの背景色をグレーにする
+highlight Pmenu ctermbg=8
+highlight PmenuSel ctermbg=Green
+highlight PmenuSbar ctermbg=Green
+"80文字目より右の背景を薄くする
+let &colorcolumn=join(range(81,999),",")
+hi ColorColumn ctermbg=235 guibg=#2c2d27 
+
