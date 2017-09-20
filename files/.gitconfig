@@ -10,11 +10,12 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = chie-hayashida
-	email = chie-hayashida@retty.me
+	name = chie8842
+	email = chie8842@gmail.com
 [commit]
 	template = /Users/chiehayashida/.stCommitMsg
 [color]
+	ui = true
 	diff = auto
 	status = auto
 	branch = auto
@@ -22,3 +23,10 @@
 graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 diffw = diff --word-diff
 diffn = diff --name-only
+set-local-user = "!f(){ git config --local user.name \"${1}\" && git config --local user.email \"${2}\"; };f"
+change-commit-author = "!f(){ git commit --amend --author=\"${1} <${2}>\";};f"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
