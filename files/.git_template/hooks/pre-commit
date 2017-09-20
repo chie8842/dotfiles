@@ -1,0 +1,17 @@
+#!/bin/bash
+key="AKIA"
+GREP_RESULT=`git diff --cached | grep $key` 
+if [ -n "${GREP_RESULT}" ]; then
+  echo "prohibited words might be in this index. Please check with git diff --cached"
+  echo ${GREP_RESULT} 
+  exit 1 
+fi
+NEW_FILE=`git diff --cached --diff-filter=A --name-only`
+for i in $NEW_FILE; do
+    GREP_RESULT=`cat $i | grep $key`
+  if [ -n "${GREP_RESULT}" ]; then
+    echo 'prohibited words might be in this index. Please check with git diff --cached'
+    echo ${GREP_RESULT} 
+    exit 1 
+  fi
+done

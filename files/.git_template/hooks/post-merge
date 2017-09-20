@@ -1,0 +1,2 @@
+#!/bin/bash
+.git/hooks/gtags >/dev/null 2>&1 &

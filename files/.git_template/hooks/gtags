@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -x `which gtags` ]
+    set -e
+    dir="`git rev-parse --git-dir`"
+    trap 'rm -f "$dir/$$.gtags"' EXIT
+    mkdir "$dir/$$.gtags"
+    git ls-files | \
+        gtags --file=- --skip-unreadable "$dir/$$.gtags"
+    mv $dir/$$.gtags/* "$dir/.."
+fi
