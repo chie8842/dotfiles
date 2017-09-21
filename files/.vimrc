@@ -39,7 +39,7 @@ call dein#add('shinespark/vim-list2tree')
 call dein#add('junegunn/vim-emoji')
 call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
 call dein#add('andviro/flake8-vim')
-call dein#add('heavenshell/vim-pydocstring', {'on_ft': 'python','djangohtml'})
+call dein#add('heavenshell/vim-pydocstring', {'on_ft': ['python','djangohtml']})
 
 call dein#end()
 
