@@ -44,6 +44,8 @@ set smartindent
 set autoindent
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 set smarttab
+" FileTypeがpythonの場合のタブ設定
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
 "-------拡張--------
 "カーソルラインを派手にする
