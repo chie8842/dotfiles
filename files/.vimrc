@@ -12,6 +12,7 @@ endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+"set rtp+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
 
 call dein#begin(expand('~/.vim/dein'))
 
@@ -40,6 +41,8 @@ call dein#add('junegunn/vim-emoji')
 call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
 call dein#add('andviro/flake8-vim')
 call dein#add('heavenshell/vim-pydocstring', {'on_ft': ['python','djangohtml']})
+call dein#add('itchyny/calendar.vim')
+"call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim/'})
 
 call dein#end()
 
