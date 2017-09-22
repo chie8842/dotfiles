@@ -226,7 +226,7 @@ unsetopt CSH_NULL_GLOB
 unsetopt DVORAK
 
 # ZLE がロードされていてこのオプションがオンになっているのは'bindkey -e'と等価に扱われ、 VI オプションが解除される
-setopt EMACS
+# setopt EMACS
 
 # = のファイル名生成が利用される
 setopt EQUALS
@@ -514,7 +514,7 @@ setopt UNSET
 unsetopt VERBOSE
 
 # ZLE がロードされていると、このオプションをセットするのは 'bindkey -v' と同じ効果を持つ
-unsetopt VI
+# unsetopt VI
 
 # 実行されるコマンドと引数を表示する
 unsetopt XTRACE

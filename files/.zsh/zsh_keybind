@@ -1,0 +1,36 @@
+#------------------------------------------------
+# settings of zsh keybind
+#------------------------------------------------
+
+# default key bind
+
+# カーソル移動
+# Control+f      # 右に移動
+# Control+b      # 左に移動
+# Meta+f         # 右に単語単位移動
+# Meta+b         # 左に単語単位移動
+# Control+e      # 行末へ移動
+# Control+a      # 行頭に移動
+# Control+n      # 下
+# Control+p      # 上
+
+
+# 文字操作
+# Control+h      # 左の文字を削除
+# Control+d      # 右の文字を削除。何も入力がない状態で使うと現在のシェルのログアウト
+# Control+k      # カーソルから行末までの文字を切り取り
+# Control+w      # 左の単語を切り取り
+# Meta+d         # 右の単語を切り取り
+# Control+u      # その行全部切り取り
+# Control+y      # ペースト
+# Control+/      # undo
+
+# その他
+# Control+m      # Enter
+# Control+j      # Enter
+# Control+g      # 現在の入力を破棄して新しい入力に
+# Control+r      # 過去のコマンドを検索。もう一度Control+rで遡る
+# Control+s      # 上のコマンドで戻りすぎた時に、最近のコマンドを検索
+# Control+l      # 今のコマンドラインをウィンドウの一番上に持ってくる
+# Control+i      # タブ補完
+# Control+c      # プログラムの強制終了
