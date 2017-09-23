@@ -78,5 +78,7 @@ if isdirectory($HOME . '/.vim/plugged/FuzzyFinder')
     nmap fc :FufMruCmd<CR>
 endif
 
+" 共通的な設定の読み込み
 runtime! settings/common/*.vim
+" プラグイン固有の設定の読み込み
 runtime! settings/plugins/*.vim
