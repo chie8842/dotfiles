@@ -7,6 +7,8 @@
 .coverage
 *.pyc
 __pycache__
+.python-version
+
 # log
 *.log
 log/
