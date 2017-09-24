@@ -41,3 +41,6 @@ spark-warehouse/
 GPATH
 GRTAGS
 GTAGS
+
+# Java
+*.class
