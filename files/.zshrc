@@ -2,6 +2,8 @@
 export PATH="/usr/local/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH=$PYENV_ROOT/bin:$PATH:/usr/local/go/bin:~/go/bin
 export PATH=$PATH:/Users/chiehayashida/gradle-3.5/bin
+export PATH=$PATH:/Users/chiehayashida/scala-2.12.2/bin
+export PATH=$PATH:/Users/chiehayashida/.bin
 export GOPATH=$HOME/go
 
 export PYENV_ROOT=$HOME/.pyenv
@@ -12,6 +14,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export LANG=ja_JP.UTF-8
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:/Users/chiehayashida/work/jars/jni
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Users/chiehayashida/work/jars/jni
+export SCALA_HOME=/Users/chiehayashida/scala-2.12.2
 
 export TERM=xterm-256color
 
