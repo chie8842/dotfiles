@@ -1,2 +1,6 @@
 # ディレクトリ配下のファイル内における文字列検索
 find . -type f -name "*.txt" | xargs grep "hoge"
+# 全てのdockerコンテナをstopする
+docker stop $(docker ps -a -q)
+# 全てのdockerコンテナを削除する
+docker rm $(docker ps -a -q)
