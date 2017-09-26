@@ -4,3 +4,20 @@ find . -type f -name "*.txt" | xargs grep "hoge"
 docker stop $(docker ps -a -q)
 # 全てのdockerコンテナを削除する
 docker rm $(docker ps -a -q)
+
+# docker-composeで作成したコンテナにログインする
+docker-compose run <ラベル> bash
+docker exec -it <コンテナ> bash
+
+# tar.gzファイルを解凍せずにlsする
+tar ztf hoge.tar.gz
+
+# tar.gzファイルに含まれるファイルの中身を解凍せずに見る
+tar zxOf hoge.tar.gz txt/hoge.txt
+
+# gzファイルをgrepする
+zgrep "foo" access_log.gz
+gzip -c access_log.gz |grep "foo"
+
+# tar.gzファイルをgrepする
+tar -O -xzvf bar.tar.gz |grep 'foo'
