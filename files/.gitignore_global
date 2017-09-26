@@ -44,3 +44,33 @@ GTAGS
 
 # Java
 *.class
+
+# gradle
+**/build/
+
+# sbt
+dist/*
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+# terraform
+*.tfstate
+*.tfstate.backup
+*.terraform/
+
+# Ansible
+*.retry
+
+# Clojure
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+.lein-failures
+.nrepl-port
+
+# Rust
+Cargo.lock
+**/*.rs.bk
