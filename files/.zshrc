@@ -24,6 +24,7 @@ if [ -f '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc' ]; the
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc'; fi
 
+source ~/.zsh/zplug
 
 # HISTORY
 HISTFILE=~/.zsh_history

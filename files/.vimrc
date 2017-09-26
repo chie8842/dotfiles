@@ -44,6 +44,7 @@ call dein#add('heavenshell/vim-pydocstring', {'on_ft': ['python','djangohtml']})
 call dein#add('itchyny/calendar.vim')
 call dein#add('derekwyatt/vim-scala')
 call dein#add('leafcage/yankround.vim')
+call dein#add('wakatime/vim-wakatime')
 "call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim/'})
 
 call dein#end()
