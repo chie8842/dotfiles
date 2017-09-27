@@ -21,3 +21,6 @@ gzip -c access_log.gz |grep "foo"
 
 # tar.gzファイルをgrepする
 tar -O -xzvf bar.tar.gz |grep 'foo'
+
+# プロセスを指定して一括削除
+kill `ps -ef | grep ProcessName | awk '{print $2;}'`
