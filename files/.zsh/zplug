@@ -1,18 +1,49 @@
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=~/.zplug
+
+if [ ! -d $ZPLUG_HOME ]; then
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+fi
+
+if [ -f $ZPLUG_HOME/init.zsh ]; then
+  source $ZPLUG_HOME/init.zsh
+
+  zplug "wbinglee/zsh-wakatime"
+
+  # syntax
+  #zplug "chrissicool/zsh-256color"
+  #zplug "Tarrasch/zsh-colors"
+  zplug "zsh-users/zsh-syntax-highlighting"
+  zplug "ascii-soup/zsh-url-highlighter"
+
+  # application
+  # zplug "voronkovich/mysql.plugin.zsh"
+  zplug "tcnksm/docker-alias", use:zshrc
+  zplug "mollifier/cd-gitroot"
+
+  # utils
+  # zplug "marzocchi/zsh-notify"
+  zplug "zsh-users/zsh-history-substring-search"
+  zplug "tymm/zsh-directory-history", \
+    as:command, \
+    use:'dir{hist,log}', \
+    hook-build:'chmod 755 dir{hist,log}'
+  zplug "zsh-users/zsh-autosuggestions", \
+    use:'dist/autosuggestions.zsh'
+
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check --verbose; then
+      printf "Install? [y/N]: "
+      if read -q; then
+          echo; zplug install
+      fi
+  fi
+
+  zplug load
+fi
+
+export SYS_NOTIFIER="/Users/kei/.rbenv/shims/terminal-notifier"
 
 
-# zplug "wbinglee/zsh-wakatime"
-# 
-# # syntax
-# zplug "chrissicool/zsh-256color"
-# zplug "Tarrasch/zsh-colors"
-# zplug "zsh-users/zsh-syntax-highlighting"
-# zplug "ascii-soup/zsh-url-highlighter"
-# 
-# # program
-# zplug "voronkovich/mysql.plugin.zsh"
-# 
-# # tools
-# zplug "marzocchi/zsh-notify"
-# zplug "oknowton/zsh-dwim"
+zstyle ':notify:*' error-sound "Glass"
+zstyle ':notify:*' success-sound "default"

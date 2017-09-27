@@ -1,3 +1,5 @@
+# zprof実行時に使う
+# zmodload zsh/zprof && zprof
 
 export PATH="/usr/local/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH=$PYENV_ROOT/bin:$PATH:/usr/local/go/bin:~/go/bin
@@ -24,7 +26,6 @@ if [ -f '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc' ]; the
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc'; fi
 
-source ~/.zsh/zplug
 
 # HISTORY
 HISTFILE=~/.zsh_history
@@ -64,9 +65,11 @@ SPROMPT="%F{yellow}%r is correct? [(n)o, (y)es, (a)bort, (e)dit]:%f"
 # gitの補完
 fpath=(~/.zsh/completion $fpath)
 
-# 補完入力の有効化
+# 補完入力の有効化 (zplugの中で実行されるためコメントアウト)
 autoload -U compinit
 compinit -u
+rm -f ~/.zcompdump; compinit
+source ~/.zsh/zplug
 
 # gitのブランチ情報などを表示
 autoload -Uz vcs_info
@@ -525,3 +528,9 @@ unsetopt XTRACE
 
 # zsh line editor を利用する
 setopt ZLE
+
+
+# zprof実行時に使う
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
+# fi
