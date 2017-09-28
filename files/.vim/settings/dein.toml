@@ -1,0 +1,112 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'crusoexia/vim-monokai'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'tpope/vim-obsession'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'shinespark/vim-list2tree'
+
+[[plugins]]
+repo = 'junegunn/vim-emoji'
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+hook_add = '''
+  let g:jedi#popup_select_first = 0
+  let g:jedi#popup_on_dot = 0
+  let g:jedi#goto_command = "<leader>d"
+  let g:jedi#goto_assignments_command = "<leader>g"
+  let g:jedi#goto_definitions_command = ""
+  let g:jedi#documentation_command = "K"
+  let g:jedi#usages_command = "<leader>n"
+  autocmd FileType python setlocal completeopt-=preview
+'''
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+hook_add = '''
+  let g:syntastic_python_checkers = ["flake8"]
+'''
+
+[[plugins]]
+repo = 'heavenshell/vim-pydocstring'
+on_ft = [ 'python', 'djangohtml' ]
+
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+
+[[plugins]]),
+repo = 'leafcage/yankround.vim'
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_add = '''
+  let g:terraform_align=1
+'''
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+# [[plugins]]
+# repo = 'powerline/powerline'
+# rtp = 'powerline/bindings/vim/'

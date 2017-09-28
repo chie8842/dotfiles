@@ -14,40 +14,18 @@ let &runtimepath = s:dein_repo_dir .",". &runtimepath
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 "set rtp+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
 
-call dein#begin(expand('~/.vim/dein'))
+" deinプラグインインストール
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  let g:rc_dir    = expand('~/.vim/settings')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neocomplcache')
-call dein#add('Shougo/neocomplete')
-call dein#add('Shougo/neosnippet-snippets')
-"call dein#add('altercation/vim-colors-solarized')
-call dein#add('crusoexia/vim-monokai')
-call dein#add('scrooloose/nerdtree')
-call dein#add('tpope/vim-obsession')
-call dein#add('plasticboy/vim-markdown')
-call dein#add('dhruvasagar/vim-table-mode')
-call dein#add('kannokanno/previm')
-call dein#add('tyru/open-browser.vim')
-call dein#add('godlygeek/tabular')
-call dein#add('AndrewRadev/linediff.vim')
-call dein#add('elzr/vim-json')
-call dein#add('shinespark/vim-list2tree')
-call dein#add('junegunn/vim-emoji')
-call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
-call dein#add('andviro/flake8-vim')
-call dein#add('heavenshell/vim-pydocstring', {'on_ft': ['python','djangohtml']})
-call dein#add('itchyny/calendar.vim')
-call dein#add('derekwyatt/vim-scala')
-call dein#add('leafcage/yankround.vim')
-call dein#add('wakatime/vim-wakatime')
-"call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim/'})
-
-call dein#end()
+  call dein#end()
+  call dein#save_state()
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
