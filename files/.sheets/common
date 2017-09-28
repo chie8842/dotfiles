@@ -24,3 +24,7 @@ tar -O -xzvf bar.tar.gz |grep 'foo'
 
 # プロセスを指定して一括削除
 kill `ps -ef | grep ProcessName | awk '{print $2;}'`
+
+# git submodule
+git submodule add -f -b <ブランチ名> <リポジトリ名> <ディレクトリ名>
+
