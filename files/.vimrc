@@ -26,6 +26,7 @@ if dein#load_state(s:dein_dir)
 
   call dein#end()
   call dein#save_state()
+endif
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
