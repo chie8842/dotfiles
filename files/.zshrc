@@ -6,6 +6,7 @@ export PATH=$PYENV_ROOT/bin:$PATH:/usr/local/go/bin:~/go/bin
 export PATH=$PATH:/Users/chiehayashida/gradle-3.5/bin
 export PATH=$PATH:/Users/chiehayashida/scala-2.12.2/bin
 export PATH=$PATH:/Users/chiehayashida/.bin
+export PATH=$PATH:/Users/chiehayashida/.clojure
 export GOPATH=$HOME/go
 
 export PYENV_ROOT=$HOME/.pyenv
@@ -69,6 +70,7 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
 rm -f ~/.zcompdump; compinit
+setopt combiningchars
 source ~/.zsh/zplug
 
 # gitのブランチ情報などを表示
@@ -110,7 +112,9 @@ alias vim="vi"
 #alias vim='/Applications/MacVim.app/Contents/MacOS/mvim'
 #alias cvim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
-#alias fstr='(){ find $1 -type f -print | xargs grep $2 }'
+alias fstr='(){ find $1 -type f -print | xargs grep $2 }'
+alias fstr2='(){ find $1 -type f |grep $2 | xargs grep $3 }'
+alias dirs='dirs -v'
 
 # エイリアスを拡張する(D)
 setopt ALIASES
