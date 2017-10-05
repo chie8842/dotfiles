@@ -73,11 +73,14 @@ hook_add = '''
   autocmd FileType python setlocal completeopt-=preview
 '''
 
-[[plugins]]
-repo = 'scrooloose/syntastic'
-hook_add = '''
-  let g:syntastic_python_checkers = ["flake8"]
-'''
+# [[plugins]]
+# # repo = 'scrooloose/syntastic'
+# repo = 'vim-syntastic/syntastic'
+# hook_add = '''
+#   let g:syntastic_python_checkers = ["flake8"]
+#   let g:syntastic_scala_scalastyle_jar = "/Users/chiehayashida/work/scalastyle-batch_2.10-0.5.0/scalastyle-batch_2.10.jar"
+# '''
+#   # let g:syntastic_scala_scalastyle_config_file = ""
 
 [[plugins]]
 repo = 'heavenshell/vim-pydocstring'
@@ -88,8 +91,9 @@ repo = 'itchyny/calendar.vim'
 
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
+on_ft = 'scala'
 
-[[plugins]]),
+[[plugins]]
 repo = 'leafcage/yankround.vim'
 
 [[plugins]]
@@ -106,6 +110,15 @@ hook_add = '''
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
+on_ft = 'js'
+
+[[plugins]]
+repo = 'tpope/vim-fireplace'
+on_ft = 'clj'
+
+[[plugins]]
+repo = 'tpope/vim-classpath'
+on_ft = 'clj'
 
 # [[plugins]]
 # repo = 'powerline/powerline'
