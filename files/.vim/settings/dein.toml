@@ -120,6 +120,9 @@ on_ft = 'clj'
 repo = 'tpope/vim-classpath'
 on_ft = 'clj'
 
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
 # [[plugins]]
 # repo = 'powerline/powerline'
 # rtp = 'powerline/bindings/vim/'
