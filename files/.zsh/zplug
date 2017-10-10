@@ -24,7 +24,7 @@ if [ -f $ZPLUG_HOME/init.zsh ]; then
   # utils
   # zplug "marzocchi/zsh-notify"
   zplug "zsh-users/zsh-history-substring-search"
-  # zplug "tymm/zsh-directory-history", \
+  zplug "tymm/zsh-directory-history", \
     as:command, \
     use:'dir{hist,log}', \
     hook-build:'chmod 755 dir{hist,log}'
