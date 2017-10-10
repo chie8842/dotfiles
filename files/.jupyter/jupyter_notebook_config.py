@@ -132,7 +132,7 @@ c.NotebookApp.token = 'test'  # ログイン時のパスワード
 #c.NotebookApp.enable_mathjax = True
 
 ## extra paths to look for Javascript notebook extensions
-#c.NotebookApp.extra_nbextensions_path = []
+c.NotebookApp.extra_nbextensions_path = ['~/.jupyter/nbextensions']
 
 ## Extra paths to search for serving static files.
 #  
@@ -171,7 +171,7 @@ c.NotebookApp.token = 'test'  # ログイン時のパスワード
 ## The kernel manager class to use.
 #c.NotebookApp.kernel_manager_class = 'notebook.services.kernels.kernelmanager.MappingKernelManager'
 #c.NotebookApp.kernel_manager_class = 'environment_kernels.EnvironmentKernelSpecManager'
-c.EnvironmentKernelSpecManager.conda_env_dirs=['/home/chie8842/.pyenv/versions/anaconda3-4.2.0/envs/py3.5.3-conda4.2.0/']
+c.EnvironmentKernelSpecManager.conda_env_dirs=['~/.pyenv/versions/anaconda3-4.2.0/envs/py3.5.3-conda4.2.0/']
 ## The kernel spec manager class to use. Should be a subclass of
 #  `jupyter_client.kernelspec.KernelSpecManager`.
 #  
