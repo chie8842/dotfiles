@@ -19,6 +19,7 @@ for file in ${array[@]}; do
       echo "${HOME}/$file exists"
       mkdir -p ${HOME}/backup
       cp -pr ${HOME}/$file ${HOME}/backup/$file.$date
+      rm -rf ${HOME}/$file
     else
       echo "${HOME}/$file not exists"
     fi
