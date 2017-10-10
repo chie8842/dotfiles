@@ -30,6 +30,7 @@ if [ -f $ZPLUG_HOME/init.zsh ]; then
     hook-build:'chmod 755 dir{hist,log}'
   zplug "zsh-users/zsh-autosuggestions", \
     use:'dist/autosuggestions.zsh'
+  zplug "mollifier/anyframe"
 
   # Install plugins if there are plugins that have not been installed
   if ! zplug check --verbose; then
@@ -42,8 +43,29 @@ if [ -f $ZPLUG_HOME/init.zsh ]; then
   zplug load
 fi
 
-export SYS_NOTIFIER="/Users/kei/.rbenv/shims/terminal-notifier"
+#-----notifier settings-----
+
+# export SYS_NOTIFIER="/Users/kei/.rbenv/shims/terminal-notifier"
 
 
-zstyle ':notify:*' error-sound "Glass"
-zstyle ':notify:*' success-sound "default"
+# zstyle ':notify:*' error-sound "Glass"
+# zstyle ':notify:*' success-sound "default"
+
+#-----anyframe settings-----
+
+# expressly specify to use fzf-tmux
+zstyle ":anyframe:selector:" use fzf-tmux
+# expressly specify to use fzf
+zstyle ":anyframe:selector:" use fzf
+
+## よく移動するディレクトリ一覧をインクリメントサーチ & 移動
+bindkey '^@' anyframe-widget-cdr
+ 
+## bash history一覧インクリメントサーチ & 実行
+bindkey '^r' anyframe-widget-execute-history
+ 
+## branch一覧をインクリメントサーチ & checkout
+bindkey '^b' anyframe-widget-checkout-git-branch
+ 
+## プロセス一覧をインクリメントサーチ & kill
+bindkey '^x^k' anyframe-widget-kill
