@@ -1,6 +1,6 @@
 #/bin/bash
 date=`date +%Y%m%d-%k%M%S`
-
+dotfile_dir=`echo $(cd $(dirname $0) && pwd)`/files
 array=(
     ".vimrc"
     ".zshrc"
@@ -13,17 +13,25 @@ array=(
     ".tmux"
 )
 
+function ln_loop() {
+    local org_dir=$1
+    local org_files=`ls -1 $org_dir`
+    for org_file in $org_files; do
+        ln -sfv $org_dir/$org_file ${HOME}/$file/$org_file
+    done
+}
+
 for file in ${array[@]}; do
     echo $file
     if [ -e ${HOME}/$file ]; then
-      echo "${HOME}/$file exists"
-      mkdir -p ${HOME}/backup
-      cp -pr ${HOME}/$file ${HOME}/backup/$file.$date
-      rm -rf ${HOME}/$file
-      if [ -d ${HOME}/$file ]; then
-        cp -pr ${HOME}/backup/$file.$date/* "$(pwd)"/files/$file/
-      fi
+        echo "${HOME}/$file exists"
+        mkdir -p ${HOME}/backup
+        cp -pr ${HOME}/$file ${HOME}/backup/$file.$date
+        # rm -rf ${HOME}/$file
     fi
-    ln -sfv "$(pwd)"/files/$file ${HOME}/$file
+    if [ -d ${HOME}/$file ]; then
+        ln_loop $dotfile_dir/$file
+    else
+        ln -sfv $dotfile_dir/$file ${HOME}/$file
+    fi
 done
-
