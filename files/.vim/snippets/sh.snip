@@ -1,0 +1,13 @@
+snippet if_exist_file
+abbr if exist file
+options head
+    if [ -e ${1:path} ]; then
+        ${0}
+    fi
+
+snippet if_dir
+abbr if is directory
+options head
+    if [ -d ${1:path} ];then
+        ${0}
+    fi
