@@ -2,15 +2,24 @@
 date=`date +%Y%m%d-%k%M%S`
 dotfile_dir=`echo $(cd $(dirname $0) && pwd)`/files
 array=(
-    ".vimrc"
-    ".zshrc"
-    ".tmux.conf"
+    ".bash"
+    ".bashrc"
+    ".bin"
+    ".config"
+    ".git_template"
     ".gitconfig"
+    ".gitignore_global"
     ".jupyter"
+    ".profile"
+    ".sheets"
     ".ssh"
+    ".tmux"
+    ".tmux.conf"
+    ".vim"
+    ".vimrc"
     ".vnc"
     ".zsh"
-    ".tmux"
+    ".zshrc"
 )
 
 function ln_loop() {
