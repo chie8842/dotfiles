@@ -63,7 +63,7 @@ set wildmenu
 set wildmode=longest,list,full
 
 "OSのクリップボードを使用する
-set clipboard+=unnamed,autoselect
+set clipboard+=unnamed,unnamedplus,autoselect
 
 "-------AutoCmd------
 if has('unix')
