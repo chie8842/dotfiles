@@ -38,7 +38,7 @@ for file in ${array[@]}; do
         cp -pr ${HOME}/$file ${HOME}/backup/$file.$date
         # rm -rf ${HOME}/$file
     fi
-    if [ -d ${HOME}/$file ]; then
+    if [ -d ${HOME}/$file -a ! -L ${HOME}/$file ]; then
         ln_loop $dotfile_dir/$file
     else
         ln -sfv $dotfile_dir/$file ${HOME}/$file
