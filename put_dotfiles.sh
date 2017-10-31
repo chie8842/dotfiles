@@ -26,7 +26,7 @@ function ln_loop() {
     local org_dir=$1
     local org_files=`ls -1 $org_dir`
     for org_file in $org_files; do
-        if [ ! -L ${HOME}/$file/$org_file ]
+        if [ ! -L ${HOME}/$file/$org_file ]; then
             ln -sfv $org_dir/$org_file ${HOME}/$file/$org_file
         fi
     done
