@@ -133,6 +133,10 @@ call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
 
+[[plugins]]
+repo = 'junegunn/fzf'
+
+
 # [[plugins]]
 # repo = 'powerline/powerline'
 # rtp = 'powerline/bindings/vim/'
