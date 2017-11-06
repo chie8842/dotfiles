@@ -1,5 +1,5 @@
 if &compatible
-	  set nocompatible
+  set nocompatible
 endif
 
 " dein自体の自動インストール
