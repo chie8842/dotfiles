@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/chiehayashida/.gitignore_global
+	excludesfile = /Users/chie-hayashida/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 	precomposeunicode = true
 	quotepath = false
@@ -12,9 +12,9 @@
 	trustExitCode = true
 [user]
 	name = chie8842
-	email = chie8842@gmail.com
+	email = chie-hayashida@cookpad.com
 [commit]
-	template = /Users/chiehayashida/.stCommitMsg
+	template = /Users/chie-hayashida/.stCommitMsg
 [color]
 	ui = true
 	diff = auto
@@ -44,3 +44,9 @@ po = push origin
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[merge "mergepbx"]
+	name = Xcode project files merger
+	driver = mergepbx %O %A %B
+	note = auto-generated configuration by cpad2 upgrade
+[ghq]
+	root = /Users/chie-hayashida/repos
