@@ -1,31 +1,52 @@
 # zprof実行時に使う
 # zmodload zsh/zprof && zprof
 
-export PATH="/usr/local/bin:$HOME/bin:$HOME/.local/bin:$PATH"
-export PATH=$PYENV_ROOT/bin:$PATH:/usr/local/go/bin:~/go/bin
-export PATH=$PATH:/Users/chiehayashida/gradle-3.5/bin
-export PATH=$PATH:/Users/chiehayashida/scala-2.12.2/bin
-export PATH=$PATH:/Users/chiehayashida/.bin
-export PATH=$PATH:/Users/chiehayashida/.clojure
+# Mac brew
+PATH="/usr/local/bin:$PATH"
+
+# GTags
+PATH=$PATH:$HOME/bin
+
+# Scala
+PATH=$PATH:~/scala-2.12.2/bin
+export SCALA_HOME=/opt/brew/Homebrew/Cellar/scala/2.12.4
+
+# Clojure
+PATH=$PATH:~/.clojure
+
+# go
 export GOPATH=$HOME/go
+PATH=$PATH:$GOPATH/bin
 
+PATH=$PATH:~/gradle-3.5/bin
+PATH=$PATH:~/.bin
+
+# pyenv
 export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
+PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
-#export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export LANG=ja_JP.UTF-8
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:/Users/chiehayashida/work/jars/jni
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Users/chiehayashida/work/jars/jni
-export SCALA_HOME=/Users/chiehayashida/scala-2.12.2
 
+# ckpd brew
+PATH=/opt/brew/Homebrew/bin:/opt/brew/bin:$PATH
+
+# Java
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+# Embulk
+# PATH=$PATH:$HOME/.embulk/bin
+
+# other utils
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:~/work/jars/jni
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni
+export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
+export PATH
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/chie-hayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/chie-hayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/chiehayashida/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '~/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '~/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc'; fi
 
 
 # HISTORY
@@ -115,6 +136,11 @@ alias vim="vi"
 alias fstr='(){ find $1 -type f -print | xargs grep $2 }'
 alias fstr2='(){ find $1 -type f |grep $2 | xargs grep $3 }'
 alias dirs='dirs -v'
+frepo() {
+  local dir
+  dir=$(ghq list > /dev/null | fzf-tmux --reverse +m) &&
+    cd $(ghq root)/$dir
+}
 
 # エイリアスを拡張する(D)
 setopt ALIASES
