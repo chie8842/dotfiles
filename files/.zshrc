@@ -4,6 +4,9 @@
 # Mac brew
 PATH="/usr/local/bin:$PATH"
 
+# ckpd brew
+PATH=/opt/brew/Homebrew/bin:/opt/brew/bin:$PATH
+
 # GTags
 PATH=$PATH:$HOME/bin
 
@@ -21,19 +24,26 @@ PATH=$PATH:$GOPATH/bin
 PATH=$PATH:~/gradle-3.5/bin
 PATH=$PATH:~/.bin
 
+# Java
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
 # pyenv
 export PYENV_ROOT=$HOME/.pyenv
 PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 
-# ckpd brew
-PATH=/opt/brew/Homebrew/bin:/opt/brew/bin:$PATH
-
-# Java
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# Ruby
+PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # Embulk
 # PATH=$PATH:$HOME/.embulk/bin
+
+# Android
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+
 
 # other utils
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:~/work/jars/jni
