@@ -74,9 +74,26 @@ case ${UID} in
 esac
 
 
+# cdr, add-zsh-hook を有効にする
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook add-zsh-hook chpwd chpwd_recent_dirs
+ 
+# cdr の設定
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
+zstyle ':completion:*' recent-dirs-insert both
 # キーバインドをVi化
 bindkey -e
+# なんかanyframeに'^B'が取られてたので設定
+bindkey '^B' backward-char
 
+# anyframeの設定
+bindkey '^x^b' anyframe-widget-checkout-git-branch
+bindkey '^x^g' anyframe-widget-cd-ghq-repository
+bindkey '^x^i' anyframe-widget-put-history
+bindkey '^x^k' anyframe-widget-kill
 
 # プロンプトの設定
 autoload -U colors
