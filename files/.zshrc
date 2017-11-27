@@ -2,7 +2,7 @@
 # zmodload zsh/zprof && zprof
 
 # Mac brew
-PATH="/usr/local/bin:$PATH"
+PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # ckpd brew
 PATH=/opt/brew/Homebrew/bin:/opt/brew/bin:$PATH
