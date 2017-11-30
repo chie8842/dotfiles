@@ -41,7 +41,9 @@ p = push
 po = push origin
 b = branch
 co = checkout
-cb = checkout -b
+cob = checkout -b
+rao = remote add origin
+rau = remote add upstream
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
