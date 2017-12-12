@@ -65,7 +65,7 @@ bindkey '^@' anyframe-widget-cdr
 bindkey '^r' anyframe-widget-execute-history
  
 ## branch一覧をインクリメントサーチ & checkout
-bindkey '^b' anyframe-widget-checkout-git-branch
+bindkey '^x^b' anyframe-widget-checkout-git-branch
  
 ## プロセス一覧をインクリメントサーチ & kill
 bindkey '^x^k' anyframe-widget-kill
