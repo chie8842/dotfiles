@@ -47,10 +47,14 @@ export PATH=$ANDROID_HOME/tools:$PATH
 
 # other utils
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:~/work/jars/jni
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni:/opt/brew/Homebrew/opt/pcre/lib
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export PATH
+
+# autosuggestions
+source /opt/brew/Homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/chie-hayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/chie-hayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc'; fi
@@ -86,14 +90,16 @@ zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 # キーバインドをVi化
 bindkey -e
-# なんかanyframeに'^B'が取られてたので設定
-bindkey '^B' backward-char
 
 # anyframeの設定
 bindkey '^x^b' anyframe-widget-checkout-git-branch
 bindkey '^x^g' anyframe-widget-cd-ghq-repository
 bindkey '^x^i' anyframe-widget-put-history
 bindkey '^x^k' anyframe-widget-kill
+
+# なんかanyframeに'^B'が取られてたので設定
+bindkey '^b' backward-char
+
 
 # プロンプトの設定
 autoload -U colors
@@ -159,6 +165,8 @@ alias less='less -X -R'
 alias vim="vi"
 #alias vim='/Applications/MacVim.app/Contents/MacOS/mvim'
 #alias cvim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+alias venv="python -m venv"
 
 alias fstr='(){ find $1 -type f -print | xargs grep $2 }'
 alias fstr2='(){ find $1 -type f |grep $2 | xargs grep $3 }'
