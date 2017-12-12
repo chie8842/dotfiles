@@ -47,7 +47,7 @@ export PATH=$ANDROID_HOME/tools:$PATH
 
 # other utils
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:~/work/jars/jni
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni:/opt/brew/Homebrew/opt/pcre/lib
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export PATH
