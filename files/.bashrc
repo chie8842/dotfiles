@@ -52,4 +52,6 @@ export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export PATH
 
+# autosuggestion
+complete -C '/opt/brew/Homebrew/bin/aws_completer' aws
 source ~/.bash/bash-wakatime.sh
