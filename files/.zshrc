@@ -54,6 +54,7 @@ export PATH
 
 # autosuggestions
 source /opt/brew/Homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/brew/Homebrew/bin/aws_zsh_completer.sh
 
 
 # The next line updates PATH for the Google Cloud SDK.
