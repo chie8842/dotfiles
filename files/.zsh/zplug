@@ -4,7 +4,6 @@ export ZPLUG_HOME=~/.zplug
 if [ ! -d $ZPLUG_HOME ]; then
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 fi
-
 if [ -f $ZPLUG_HOME/init.zsh ]; then
   source $ZPLUG_HOME/init.zsh
 
@@ -39,7 +38,6 @@ if [ -f $ZPLUG_HOME/init.zsh ]; then
           echo; zplug install
       fi
   fi
-
   zplug load
 fi
 
