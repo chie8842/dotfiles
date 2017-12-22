@@ -7,21 +7,18 @@ build = 'make'
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
+if   = "has('lua')"
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
-
-[[plugins]]
-repo = 'Shougo/neocomplcache'
-
-[[plugins]]
-repo = 'Shougo/neocomplete'
+if   = "has('lua')"
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+if   = "has('lua')"
 
 [[plugins]]
 repo = 'crusoexia/vim-monokai'
