@@ -53,7 +53,7 @@ export TERM=xterm-256color
 export PATH
 
 # autosuggestions
-source /opt/brew/Homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/brew/Homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/brew/Homebrew/bin/aws_zsh_completer.sh
 
 
@@ -471,6 +471,9 @@ setopt MULTIOS
 
 # ファイル名生成のパターンにマッチするものがない場合、引数リストをそのままにするのではなく、エラーを表示する
 setopt NOMATCH
+
+# 
+set nonomatch
 
 # バックグラウンドジョブの状態の報告を、次のプロンプトを表示するまで待つのではなく、即座に行う
 setopt NOTIFY
