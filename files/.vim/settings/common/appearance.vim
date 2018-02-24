@@ -26,7 +26,11 @@ set laststatus=2
 set wildmode=list:longest
 " 不可視文字を可視化
 set list
-set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-,eol:↩
+if has('mac')
+    set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-,eol:↩
+else
+    set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-,eol:
+endif
 " 括弧の対応をハイライト
 set showmatch
 " ウインドウタイトルを設定する
@@ -57,5 +61,6 @@ highlight PmenuSel ctermbg=Green
 highlight PmenuSbar ctermbg=Green
 "80文字目より右の背景を薄くする
 let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn=join(range(51,999),",")
 hi ColorColumn ctermbg=235 guibg=#2c2d27 
 
