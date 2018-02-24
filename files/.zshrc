@@ -1,5 +1,5 @@
 # zprof実行時に使う
-# zmodload zsh/zprof && zprof
+#zmodload zsh/zprof && zprof
 
 # Mac brew
 PATH="$HOME/bin:/usr/local/bin:$PATH"
@@ -37,12 +37,13 @@ PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # Embulk
-# PATH=$PATH:$HOME/.embulk/bin
+PATH=$PATH:$HOME/.embulk/bin
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
+
 
 
 # other utils
@@ -51,6 +52,9 @@ export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni:/opt/brew/Homebr
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export PATH
+
+# cpad2
+source ~/.zsh/cpad2
 
 # autosuggestions
 # source /opt/brew/Homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -122,9 +126,9 @@ SPROMPT="%F{yellow}%r is correct? [(n)o, (y)es, (a)bort, (e)dit]:%f"
 fpath=(~/.zsh/completion $fpath)
 
 # 補完入力の有効化 (zplugの中で実行されるためコメントアウト)
-autoload -U compinit
-compinit -u
-rm -f ~/.zcompdump; compinit
+#autoload -U compinit
+#compinit -u
+#rm -f ~/.zcompdump; compinit
 setopt combiningchars
 source ~/.zsh/zplug
 
@@ -600,6 +604,6 @@ setopt ZLE
 
 
 # zprof実行時に使う
-# if (which zprof > /dev/null 2>&1) ;then
-#   zprof
-# fi
+#if (which zprof > /dev/null 2>&1) ;then
+#  zprof
+#fi

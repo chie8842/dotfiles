@@ -38,7 +38,7 @@ eval "$(rbenv init -)"
 PATH=/opt/brew/Homebrew/bin:/opt/brew/bin:$PATH
 
 # Embulk
-# PATH=$PATH:$HOME/.embulk/bin
+PATH=$PATH:$HOME/.embulk/bin
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -50,6 +50,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pk
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni:/opt/brew/Homebrew/opt/pcre/lib
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 export PATH
 
 # autosuggestion
