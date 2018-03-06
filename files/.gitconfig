@@ -44,6 +44,7 @@ co = checkout
 cob = checkout -b
 rao = remote add origin
 rau = remote add upstream
+su = submodule update --init --recursive
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
