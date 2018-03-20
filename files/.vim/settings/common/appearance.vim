@@ -26,7 +26,11 @@ set laststatus=2
 set wildmode=list:longest
 " 不可視文字を可視化
 set list
-set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-,eol:↩
+if has('mac')
+    set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-,eol:↩
+else
+    set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-
+endif
 " 括弧の対応をハイライト
 set showmatch
 " ウインドウタイトルを設定する
