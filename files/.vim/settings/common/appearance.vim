@@ -29,7 +29,7 @@ set list
 if has('mac')
     set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-,eol:↩
 else
-    set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-,eol:
+    set list listchars=tab:\▸\-,extends:↓,precedes:«,trail:-
 endif
 " 括弧の対応をハイライト
 set showmatch
