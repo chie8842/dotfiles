@@ -49,7 +49,6 @@ export PATH=$ANDROID_HOME/tools:$PATH
 # other utils
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:~/work/jars/jni
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni:/opt/brew/Homebrew/opt/pcre/lib
-export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export PATH
 
@@ -75,7 +74,14 @@ SAVEHIST=1000000
 
 
 # LANG設定 rootの場合はCに設定
-export LANG=ja_JP.UTF-8
+case "${OSTYPE}" in
+freebsd*|darwin*)
+    export LANG=ja_JP.UTF-8
+    ;;
+linux*)
+    export LANG=en_US.UTF-8
+    ;;
+esac
 case ${UID} in
 0)
     LANG=C
@@ -96,7 +102,17 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 # キーバインドをVi化
 bindkey -e
 
+# 補完入力の有効化 (zplugの中で実行されるためコメントアウト)
+#autoload -U compinit
+#compinit -u
+#rm -f ~/.zcompdump; compinit
+setopt combiningchars
+source ~/.zsh/zplug
 # anyframeの設定
+fpath=($HOME/.zsh/anyframe(N-/) $fpath)
+autoload -Uz anyframe-init
+anyframe-init
+
 bindkey '^x^b' anyframe-widget-checkout-git-branch
 bindkey '^x^g' anyframe-widget-cd-ghq-repository
 bindkey '^x^i' anyframe-widget-put-history
@@ -124,13 +140,6 @@ SPROMPT="%F{yellow}%r is correct? [(n)o, (y)es, (a)bort, (e)dit]:%f"
 
 # gitの補完
 fpath=(~/.zsh/completion $fpath)
-
-# 補完入力の有効化 (zplugの中で実行されるためコメントアウト)
-#autoload -U compinit
-#compinit -u
-#rm -f ~/.zcompdump; compinit
-setopt combiningchars
-source ~/.zsh/zplug
 
 # gitのブランチ情報などを表示
 autoload -Uz vcs_info
@@ -607,3 +616,5 @@ setopt ZLE
 #if (which zprof > /dev/null 2>&1) ;then
 #  zprof
 #fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
