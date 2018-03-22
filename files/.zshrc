@@ -44,7 +44,8 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
 
-
+# Istio
+PATH=$HOME/istio-0.6.0/bin:$PATH
 
 # other utils
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:~/work/jars/jni
@@ -60,12 +61,18 @@ source ~/.zsh/cpad2
 # source /opt/brew/Homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/brew/Homebrew/bin/aws_zsh_completer.sh
 
+# gcloud sdk
+source $HOME/.zsh/gcloud.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/chie-hayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/chie-hayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '~/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '~/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc'; fi
+
+# git
+source $HOME/.git_completion/git-completion.zsh
+source $HOME/.git_completion/git-prompt.sh
 
 
 # HISTORY
