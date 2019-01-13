@@ -27,6 +27,10 @@ PATH=$PATH:~/.bin
 # Java
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
+## jenv
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init -)"
+
 # pyenv
 export PYENV_ROOT=$HOME/.pyenv
 PATH=$PYENV_ROOT/bin:$PATH
@@ -41,8 +45,11 @@ PATH=$PATH:$HOME/.embulk/bin
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
+PATH=$ANDROID_HOME/platform-tools:$PATH
+PATH=$ANDROID_HOME/tools:$PATH
+
+# Rust
+PATH=$PATH:~/.cargo/bin
 
 # Istio
 PATH=$HOME/istio-0.6.0/bin:$PATH
@@ -55,6 +62,9 @@ export PATH
 
 # cpad2
 source ~/.zsh/cpad2
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # autosuggestions
 # source /opt/brew/Homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
