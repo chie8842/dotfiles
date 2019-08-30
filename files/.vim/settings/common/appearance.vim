@@ -64,3 +64,5 @@ let &colorcolumn=join(range(81,999),",")
 "let &colorcolumn=join(range(51,999),",")
 hi ColorColumn ctermbg=235 guibg=#2c2d27 
 
+"折返しする
+set wrap
