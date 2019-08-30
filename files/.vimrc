@@ -59,6 +59,9 @@ if isdirectory($HOME . '/.vim/plugged/FuzzyFinder')
     nmap fl :FufChangeList<CR>
     nmap fc :FufMruCmd<CR>
 endif
+scriptencoding utf-8
+set encoding=utf-8
+
 
 " 共通的な設定の読み込み
 runtime! settings/common/*.vim
