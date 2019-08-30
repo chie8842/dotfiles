@@ -64,6 +64,7 @@ export PATH
 source ~/.zsh/cpad2
 
 # direnv
+export=vim
 eval "$(direnv hook zsh)"
 
 # autosuggestions
