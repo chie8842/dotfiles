@@ -5,6 +5,10 @@ c.NotebookApp.ip = '*' # jupyter notebookに紐づけるインターフェース
 c.NotebookApp.open_browser = False # 起動時にブラウザを開くか
 c.NotebookApp.port = 8080  # ポート番号
 c.NotebookApp.token = 'test'  # ログイン時のパスワード
+c.NotebookApp.open_browser=False
+c.NotebookApp.iopub_data_rate_limit=10000000000
+c.NotebookApp.allow_root=True
+
 #------------------------------------------------------------------------------
 # Application(SingletonConfigurable) configuration
 #------------------------------------------------------------------------------
