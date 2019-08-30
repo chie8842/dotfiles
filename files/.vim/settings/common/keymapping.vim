@@ -200,3 +200,9 @@ if has('unix')
     endfunction
     nmap ,nn :call Relnum_switch()<CR>
 endif
+"insertモード時にControlキーとhjklで移動できるようにする
+imap <C-G>h <Left>
+imap <C-G>j <Down>
+imap <C-G>k <Up>
+imap <C-G>l <Right>
+"imap <C-G>h <BS>
