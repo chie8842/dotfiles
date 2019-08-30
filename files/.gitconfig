@@ -55,6 +55,6 @@ su = submodule update --init --recursive
 	driver = mergepbx %O %A %B
 	note = auto-generated configuration by cpad2 upgrade
 [ghq]
-	root = /Users/chie-hayashida/repos
+	root = /Users/chie-hayashida/go/src
 [ghq "https://ghe.ckpd.co/chie8842"]
 vcs=git
