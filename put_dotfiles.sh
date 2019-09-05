@@ -2,21 +2,16 @@
 date=`date +%Y%m%d-%k%M%S`
 dotfile_dir=`echo $(cd $(dirname $0) && pwd)`/files
 array=(
-    ".bash"
     ".bashrc"
-    ".bin"
-    ".config"
     ".git_template"
     ".gitconfig"
     ".gitignore_global"
     ".jupyter"
-    ".profile"
     ".sheets"
-    ".ssh"
-    ".tmux"
     ".tmux.conf"
-    ".vim"
     ".vimrc"
+    ".ssh/config"
+    ".ssh/conf.d"
     ".vnc"
     ".zsh"
     ".zshrc"
@@ -39,9 +34,5 @@ for file in ${array[@]}; do
         cp -pr ${HOME}/$file ${HOME}/backup/$file.$date
         # rm -rf ${HOME}/$file
     fi
-    if [ -d ${HOME}/$file -a ! -L ${HOME}/$file ]; then
-        ln_loop $dotfile_dir/$file
-    else
-        ln -sfv $dotfile_dir/$file ${HOME}/$file
-    fi
+    ln -sfv $dotfile_dir/$file ${HOME}/$file
 done
