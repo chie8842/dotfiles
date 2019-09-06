@@ -3,6 +3,7 @@ filetype plugin indent on
 let mapleader = "\<Space>"
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet']
 let g:go_term_mode = 'split'
 let g:go_auto_type_info = 1
 
