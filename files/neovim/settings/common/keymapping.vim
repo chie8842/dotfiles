@@ -83,29 +83,19 @@ nmap ,cd :cd %:h<CR>
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-"-------VIM7以降--------
 "Tab操作
-if v:version >= 700
-    "15までタブを開く
-    set tabpagemax=15
-    "タブラインを常に表示する
-    "set showtabline=2
-    if has('unix')
-        nmap <ESC>t :tabnew<CR>
-        nmap <ESC>e :tabnew ./<CR>
-        nmap <ESC>n :tabn<CR>
-        nmap <ESC>p :tabp<CR>
-        nmap <ESC>o :tabo<CR>
-        nmap <ESC>d :tabd
-        if has('gui')
-            nmap <M-t> :tabnew<CR>
-            nmap <M-e> :tabnew ./<CR>
-            nmap <M-n> :tabn<CR>
-            nmap <M-p> :tabp<CR>
-            nmap <M-o> :tabo<CR>
-            nmap <M-d> :tabd
-        endif
-    elseif has('win32')
+"15までタブを開く
+set tabpagemax=15
+"タブラインを常に表示する
+"set showtabline=2
+if has('unix')
+    nmap <ESC>t :tabnew<CR>
+    nmap <ESC>e :tabnew ./<CR>
+    nmap <ESC>n :tabn<CR>
+    nmap <ESC>p :tabp<CR>
+    nmap <ESC>o :tabo<CR>
+    nmap <ESC>d :tabd
+    if has('gui')
         nmap <M-t> :tabnew<CR>
         nmap <M-e> :tabnew ./<CR>
         nmap <M-n> :tabn<CR>
@@ -113,6 +103,13 @@ if v:version >= 700
         nmap <M-o> :tabo<CR>
         nmap <M-d> :tabd
     endif
+elseif has('win32')
+    nmap <M-t> :tabnew<CR>
+    nmap <M-e> :tabnew ./<CR>
+    nmap <M-n> :tabn<CR>
+    nmap <M-p> :tabp<CR>
+    nmap <M-o> :tabo<CR>
+    nmap <M-d> :tabd
 endif
 
 "sudoを忘れて権限のないファイルを編集した時\sudoで保存
@@ -146,26 +143,6 @@ inoremap <C-C> <ESC>
 "挿入モードで",date",',time'で日付、時刻挿入
 inoremap ,date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
 inoremap ,time <C-R>=strftime('%H:%M')<CR>
-
-"<S-TAB>でexpandtabをトグル
-function Tab_switch()
-    if &expandtab =='1'
-        set noexpandtab
-    else
-        set expandtab
-    endif
-endfunction
-nmap <S-TAB> :call Tab_switch()<CR>
-
-"<ESC>wでnowrapをトグル
-function Wrap_switch()
-    if &wrap =='1'
-        set nowrap
-    else
-        set wrap
-    endif
-endfunction
-nmap <ESC>w :call Wrap_switch()<CR>
 
 "SSH越しにファイルを編集する
 if has('unix')
@@ -202,7 +179,7 @@ if has('unix')
 endif
 "insertモード時にControlキーとhjklで移動できるようにする
 imap <C-G>h <Left>
-imap <C-G>j <Down>
-imap <C-G>k <Up>
+"imap <c-j> <Down>
+"imap <c-k> <Up>
 imap <C-G>l <Right>
 "imap <C-G>h <BS>

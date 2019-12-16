@@ -10,9 +10,9 @@ set backspace=indent,eol,start
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
-"set nobackup
+set nobackup
 " スワップファイルを作らない
-"set noswapfile
+set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
 " バッファが編集中でもその他のファイルを開けるように
@@ -63,7 +63,7 @@ set wildmenu
 set wildmode=longest,list,full
 
 "OSのクリップボードを使用する
-set clipboard+=unnamed,unnamedplus,autoselect
+set clipboard+=unnamed,unnamedplus
 
 "-------AutoCmd------
 if has('unix')
@@ -145,16 +145,17 @@ if has('unix')
     nmap <C-C><C-V> :call Indent_switch()<CR>
 endif
 
-"拡張属性を自動付与
-if has('mac')
-    autocmd BufWritePost *.txt
-        \ if &fenc=='utf-8' |
-        \ exec "silent !xattr -w com.apple.TextEncoding 'UTF-8;134217984' \"%\"" |
-        \ elseif &fenc=='euc-jp' |
-        \ exec "silent !xattr -w com.apple.TextEncoding 'EUC-JP;2361' \"%\"" |
-        \ elseif &fenc=='iso-2022-jp' |
-        \ exec "silent !xattr -w com.apple.TextEncoding 'ISO-2022-JP;2080' \"%\"" |
-        \ elseif &fenc=='cp932' |
-        \ exec "silent !xattr -w com.apple.TextEncoding 'SHIFT_JIS;2561' \"%\"" |
-        \ endif
-endif
+""拡張属性を自動付与
+"if has('mac')
+"    autocmd BufWritePost *.txt
+"        \ if &fenc=='utf-8' |
+"        \ exec "silent !xattr -w com.apple.TextEncoding 'UTF-8;134217984' \"%\"" |
+"        \ elseif &fenc=='euc-jp' |
+"        \ exec "silent !xattr -w com.apple.TextEncoding 'EUC-JP;2361' \"%\"" |
+"        \ elseif &fenc=='iso-2022-jp' |
+"        \ exec "silent !xattr -w com.apple.TextEncoding 'ISO-2022-JP;2080' \"%\"" |
+"        \ elseif &fenc=='cp932' |
+"        \ exec "silent !xattr -w com.apple.TextEncoding 'SHIFT_JIS;2561' \"%\"" |
+"        \ endif
+"endif
+

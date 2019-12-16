@@ -1,0 +1,40 @@
+[[plugins]] # カーソル位置によってfiletypeを変更する
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+[[plugins]] # vim-preciousの依存プラグイン
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]] # statuslineのプラグイン
+repo    = 'vim-airline/vim-airline'
+depends = ['vim-airline-themes', 'vim-fugitive']
+hook_add = '''
+  let g:airline_theme='simple'
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline_powerline_fonts=1
+  set laststatus=2
+  let g:airline#extensions#branch#enabled=1
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'crusoexia/vim-monokai'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+depends = ['fzf']
+hook_add = '''
+:source ~/.config/nvim/settings/plugins/fzf.vim
+'''
+
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+hook_add = '''
+" :source ~/.config/nvim/settings/plugins/calender.vim
+'''
+

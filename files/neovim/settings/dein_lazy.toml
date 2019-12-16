@@ -1,0 +1,148 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+build = 'coc#util#install()'
+on_ft = ['python']
+hook_add = '''
+:source ~/.config/nvim/settings/plugins/coc.vim
+'''
+
+[[plugins]] # インデントの深さを表示する
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_char = '¦'
+'''
+
+[[plugins]] # vimからコマンド実行するやつ
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+#[[plugins]]
+#repo = 'Shougo/denite.nvim'
+#do = ':UpdateRemotePlugins'
+#depends = ['neomru.vim']
+#on_event = 'BufRead'
+#hook_post_source = '''
+#:source ~/.config/nvim/settings/plugins/denite.vim
+#'''
+
+#[[plugins]] # deniteに必要
+#repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+nnoremap <silent><C-w><C-e> :NERDTreeToggle<CR>
+'''
+
+[[plugins]] # session復元
+repo = 'tpope/vim-obsession'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_post_source='''
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-open)
+vmap gx <Plug>(openbrowser-open)
+'''
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+
+#[[plugins]]
+#repo = 'AndrewRadev/linediff.vim'
+#hook_add = '''
+#:source ~/.config/nvim/settings/plugins/linediff.vim
+#'''
+
+#### markdown #####
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown', 'mkd', 'md']
+hook_add = '''
+:source ~/.config/nvim/settings/plugins/vim-markdown.vim
+'''
+
+[[plugins]]
+repo = 'shinespark/vim-list2tree'
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+on_ft = ['markdown', 'mkd', 'md']
+hook_add = '''
+:source ~/.config/nvim/settings/plugins/vim-table-mode.vim
+'''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['markdown', 'mkd', 'md']
+hook_add = '''
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a "Google Chrome"'
+'''
+
+#[[plugins]]
+#repo = 'godlygeek/tabular'
+#hook_add = '''
+#:source ~/.config/nvim/settings/plugins/tabular.vim
+#'''
+
+
+#### python ####
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+hook_add = '''
+  let g:jedi#popup_select_first = 0
+  let g:jedi#popup_on_dot = 0
+  let g:jedi#goto_command = "<leader>d"
+  let g:jedi#goto_assignments_command = "<leader>g"
+  let g:jedi#goto_definitions_command = ""
+  let g:jedi#documentation_command = "K"
+  let g:jedi#usages_command = "<leader>n"
+  autocmd FileType python setlocal completeopt-=preview
+'''
+
+[[plugins]]
+repo = 'heavenshell/vim-pydocstring'
+on_ft = [ 'python', 'djangohtml']
+hook_add = '''
+nmap <silent> <C-_> <Plug>(pydocstring)
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
+
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = ['scala']
+hook_add = '''
+au BufNewFile,BufRead *.scala setf scala
+'''
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_add = '''
+  let g:terraform_align=1
+'''
+on_ft = ['terraform']
+
+[[plugins]]
+repo = 'google/vim-jsonnet'
+on_ft = ['jsonnet']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['js']
+
+#[[plugins]]
+#repo = 'fatih/vim-go'
+#on_ft = 'go'

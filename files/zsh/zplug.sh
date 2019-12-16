@@ -1,5 +1,4 @@
-# export ZPLUG_HOME=/usr/local/opt/zplug
-export ZPLUG_HOME=~/.zplug
+export ZPLUG_HOME=~/.zsh/zplug
 
 if [ ! -d $ZPLUG_HOME ]; then
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
@@ -30,6 +29,7 @@ if [ -f $ZPLUG_HOME/init.zsh ]; then
   zplug "zsh-users/zsh-autosuggestions", \
     use:'dist/autosuggestions.zsh'
   zplug "mollifier/anyframe"
+  #zplug "b-ryan/powerline-shell"
 
   # Install plugins if there are plugins that have not been installed
   if ! zplug check --verbose; then
@@ -40,14 +40,6 @@ if [ -f $ZPLUG_HOME/init.zsh ]; then
   fi
   zplug load
 fi
-
-#-----notifier settings-----
-
-# export SYS_NOTIFIER="/Users/kei/.rbenv/shims/terminal-notifier"
-
-
-# zstyle ':notify:*' error-sound "Glass"
-# zstyle ':notify:*' success-sound "default"
 
 #-----anyframe settings-----
 
@@ -67,3 +59,22 @@ bindkey '^x^b' anyframe-widget-checkout-git-branch
  
 ## プロセス一覧をインクリメントサーチ & kill
 bindkey '^x^k' anyframe-widget-kill
+
+
+##------powerline settings----
+#function powerline_precmd() {
+#    PS1="$(powerline-shell --shell zsh $?)"
+#}
+#
+#function install_powerline_precmd() {
+#  for s in ${precmd_functions[@]}; do
+#    if [ "$s" = "powerline_precmd" ]; then
+#      return
+#    fi
+#  done
+#  precmd_functions+=(powerline_precmd)
+#}
+#
+#if [ "$TERM" != "linux" ]; then
+#    install_powerline_precmd
+#fi

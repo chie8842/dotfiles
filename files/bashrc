@@ -1,0 +1,23 @@
+# wakatime
+if [ ! -f ~/.bash/bash-wakatime.sh ]; then
+  mkdir -p ~/.bash
+  git clone https://github.com/gjsheep/bash-wakatime.git ~/.bash
+fi
+source ~/.bash/bash-wakatime.sh
+
+source ~/.bash_profile
+# gcloud
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/chiehayashida/google-cloud-sdk/path.bash.inc' ]; then . '/Users/chiehayashida/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/chiehayashida/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/chiehayashida/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+# git
+source $HOME/go/src/github.com/git/git/contrib/completion/git-completion.zsh
+source $HOME/go/src/github.com/git/git/contrib/completion/git-prompt.sh
+
+# aws
+source ~/go/src/github.com/aws/aws-cli/bin/aws_bash_completer.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

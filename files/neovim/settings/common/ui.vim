@@ -4,9 +4,10 @@
 
 "ターミナルでマウスを使用できるようにする
 if has ("mouse")
-"    set mouse=a
+    set mouse=a
+    vmap <LeftRelease> "*ygv
     set guioptions+=a
-    set ttymouse=xterm2
+    "set ttymouse=xterm2
 endif
 
 if has('gui')
@@ -23,20 +24,13 @@ endif
 
 "-----Macのみ有効------
 if has('gui_macvim') || has('mac')
-    "ウインドウポジション、サイズの設定
-    winpos 837 22
-    " 半角スペースが入ったファイル名もgfで開けるようにする 
+    " 半角スペースが入ったファイル名もgfで開けるようにする
     set isfname+=32
-    set lines=90
-    set columns=140
-    "colorscheme murphy
-    "set guifont=Menlo\ Regular:h10
-    "set guifontwide=Menlo\ Regular:h10
     set guifont=Ricty\ Regular\ for\ Powerline:h11
     set guifontwide=Ricty\ Regular\ for\ Powerline:h11
-    "set imdisable
+    set imdisable
     "set iminsert=2
-    "set imsearch=0
+    set imsearch=0
 endif
 
 "-----Windowsのみ有効------

@@ -1,0 +1,29 @@
+{
+  "segments": [
+    "time",
+    "username",
+    "hostname",
+    "ssh",
+    "cwd",
+    "git",
+    "git_stash",
+    "jobs",
+    "root",
+    "exit_code"
+  ],
+  "mode": "flat",
+  "cwd": {
+    "mode": "plain",
+    "max_depth": 1
+  },
+  "hostname": {
+    "colorize": "true"
+  },
+  "time": {
+    "format": "%H:%M:%S"
+  },
+  "vcs": {
+    "show_symbol": "true"
+  },
+  "theme": "solarized_dark"
+}

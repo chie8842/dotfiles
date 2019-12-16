@@ -2,9 +2,7 @@
 " settings for appearance
 "==============================================
 
-set background=dark
-" colorscheme monokai
-" set t_Co=256
+colorscheme monokai
 " 行番号,ルーラーを表示
 set number
 set ruler
@@ -61,8 +59,7 @@ highlight PmenuSel ctermbg=Green
 highlight PmenuSbar ctermbg=Green
 "80文字目より右の背景を薄くする
 let &colorcolumn=join(range(81,999),",")
-"let &colorcolumn=join(range(51,999),",")
-hi ColorColumn ctermbg=235 guibg=#2c2d27 
+highlight ColorColumn ctermbg=235 guibg=#2c2d27 
 
 "折返しする
 set wrap

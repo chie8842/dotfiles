@@ -1,95 +1,44 @@
 # zprof実行時に使う
 #zmodload zsh/zprof && zprof
 
-# Mac brew
-PATH="$HOME/bin:/usr/local/bin:$PATH"
-
-# ckpd brew
-PATH=/opt/brew/Homebrew/bin:/opt/brew/bin:$PATH
-
-# GTags
-PATH=$PATH:$HOME/bin
-
-# Scala
-PATH=$PATH:~/scala-2.12.2/bin
-export SCALA_HOME=/opt/brew/Homebrew/Cellar/scala/2.12.4
-
-# Clojure
-PATH=$PATH:~/.clojure
-
-# go
-export GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
-
-PATH=$PATH:~/gradle-3.5/bin
-PATH=$PATH:~/.bin
-
-# Java
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-
-## jenv
-#export PATH="$HOME/.jenv/bin:$PATH"
-#eval "$(jenv init -)"
-
-# pyenv
-export PYENV_ROOT=$HOME/.pyenv
-PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
-
-# Ruby
-PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# Embulk
-PATH=$PATH:$HOME/.embulk/bin
-
-# Android
-export ANDROID_HOME=$HOME/Library/Android/sdk
-PATH=$ANDROID_HOME/platform-tools:$PATH
-PATH=$ANDROID_HOME/tools:$PATH
-
-# Rust
-PATH=$PATH:~/.cargo/bin
-
-# Istio
-PATH=$HOME/istio-0.6.0/bin:$PATH
-
-# other utils
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.pyenv/versions/anaconda3-4.2.0/pkgs/arrow-cpp-0.2.post-0/lib:~/work/jars/jni
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$HOME/work/jars/jni:/opt/brew/Homebrew/opt/pcre/lib
-export TERM=xterm-256color
-export PATH
-
-# cpad2
-source ~/.zsh/cpad2
+source ~/.bash_profile
 
 # direnv
 export=vim
 eval "$(direnv hook zsh)"
 
-# autosuggestions
-# source /opt/brew/Homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/brew/Homebrew/bin/aws_zsh_completer.sh
+fpath=(/usr/local/share/zsh-completions $fpath)
+fvim() {
+  files=$(git ls-files) &&
+  selected_files=$(echo "$files" | fzf -m --preview 'head -100 {}') &&
+  vim $selected_files
+}
 
-# gcloud sdk
-source $HOME/.zsh/gcloud.zsh
+# completion
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+# gcloud
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/chie-hayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/chie-hayashida/work/dpi/gcp/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/chiehayashida/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chiehayashida/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '~/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc' ]; then source '~/work/dpi/gcp/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/chiehayashida/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chiehayashida/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-# git
-source $HOME/.git_completion/git-completion.zsh
-source $HOME/.git_completion/git-prompt.sh
+## git
+#source $HOME/go/src/github.com/git/git/contrib/completion/git-completion.zsh
+#source $HOME/go/src/github.com/git/git/contrib/completion/git-prompt.sh
 
+# aws
+source ~/go/src/github.com/aws/aws-cli/bin/aws_zsh_completer.sh
 
 # HISTORY
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+export TERM=xterm-256color
 
 # LANG設定 rootの場合はCに設定
 case "${OSTYPE}" in
@@ -106,11 +55,10 @@ case ${UID} in
     ;;
 esac
 
-
 # cdr, add-zsh-hook を有効にする
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
- 
+
 # cdr の設定
 zstyle ':completion:*' recent-dirs-insert both
 zstyle ':chpwd:*' recent-dirs-max 500
@@ -120,12 +68,12 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 # キーバインドをVi化
 bindkey -e
 
-# 補完入力の有効化 (zplugの中で実行されるためコメントアウト)
-#autoload -U compinit
-#compinit -u
-#rm -f ~/.zcompdump; compinit
+autoload -U compinit
+compinit -u
 setopt combiningchars
-source ~/.zsh/zplug
+
+source ~/.zsh/zplug.sh
+
 # anyframeの設定
 fpath=($HOME/.zsh/anyframe(N-/) $fpath)
 autoload -Uz anyframe-init
@@ -194,9 +142,8 @@ alias ll="ls -l"
 alias grep='grep --color'
 alias less='less -X -R'
 
-alias vim="vi"
-#alias vim='/Applications/MacVim.app/Contents/MacOS/mvim'
-#alias cvim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vim="nvim"
+alias vi="nvim"
 
 alias venv="python -m venv"
 
@@ -503,7 +450,7 @@ setopt MULTIOS
 # ファイル名生成のパターンにマッチするものがない場合、引数リストをそのままにするのではなく、エラーを表示する
 setopt NOMATCH
 
-# 
+#
 set nonomatch
 
 # バックグラウンドジョブの状態の報告を、次のプロンプトを表示するまで待つのではなく、即座に行う
@@ -584,7 +531,7 @@ unsetopt SH_FILE_EXPANSION
 # 変数やコマンド置換結果得られたグロッビングにおいて、またシェルがパターンを受け付ける他の場所のいくつかで、 '('、'|'、')' および '<' の特殊な意味を無効化する
 unsetopt SH_GLOB
 
-# 変数やコマンド置換結果得られたグロッビングにおいて、またシェルがパターンを受け付ける他の場所のいくつかで、 '('、'|'、')' および '<' の特殊な意味を無効化する 
+# 変数やコマンド置換結果得られたグロッビングにおいて、またシェルがパターンを受け付ける他の場所のいくつかで、 '('、'|'、')' および '<' の特殊な意味を無効化する
 # setopt SHIN_STDIN
 
 # リダイレクションの差異に NULLCMD や READNULLCMD の値を使うのではなく、 ':' コマンドを使う
@@ -636,3 +583,4 @@ setopt ZLE
 #fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
