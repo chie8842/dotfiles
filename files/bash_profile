@@ -34,3 +34,7 @@ export PATH=$PATH:$GOROOT/bin
 
 # # Rust
 # PATH=$PATH:~/.cargo/bin
+
+# direnv
+eval "$(direnv hook bash)"
+
