@@ -20,4 +20,7 @@ source $HOME/go/src/github.com/git/git/contrib/completion/git-prompt.sh
 # aws
 source ~/go/src/github.com/aws/aws-cli/bin/aws_bash_completer.sh
 
+# direnv
+eval "$(direnv hook bash)"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

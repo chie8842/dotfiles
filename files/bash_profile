@@ -35,6 +35,4 @@ export PATH=$PATH:$GOROOT/bin
 # # Rust
 # PATH=$PATH:~/.cargo/bin
 
-# direnv
-eval "$(direnv hook bash)"
-
+export PATH=$HOME/google-cloud-sdk/bin:$PATH
