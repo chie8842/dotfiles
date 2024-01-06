@@ -107,7 +107,8 @@ local p_mark="%B%(?, %F{green}, %F{red})%#%f%b"
 if [ -n "$SSH_CONNECTION" ]; then
     PROMPT="%F{green]}[%F{magenta}%n%F{green}@%F{cyan}%m%F{green}:%c]$p_mark"
 else
-    PROMPT="%F{green}[%c]$p_mark"
+    #PROMPT="%F{blue}[%c]$p_mark"
+    PROMPT="$p_mark"
 fi
 PROMPT2="%F{magenta}%_->%f"
 RPROMPT="%F{yellow}[%d]%f"
