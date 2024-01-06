@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/chiehayashida/.gitignore_global
+	excludesfile = /Users/chie.h/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 	precomposeunicode = true
 	quotepath = false
@@ -14,7 +14,7 @@
 	name = chie8842
 	email = chie8842@gmail.com
 [commit]
-	template = /Users/chiehayashida/.stCommitMsg
+	template = /Users/chie.h/.stCommitMsg
 [color]
 	ui = true
 	diff = auto
@@ -55,6 +55,6 @@ su = submodule update --init --recursive
 	driver = mergepbx %O %A %B
 	note = auto-generated configuration by cpad2 upgrade
 [ghq]
-	root = /Users/chiehayashida/go/src
+	root = /Users/chie.h/go/src
 [ghq "https://ghe.ckpd.co/chie8842"]
 vcs=git

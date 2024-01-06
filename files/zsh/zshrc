@@ -7,7 +7,7 @@ source ~/.bash_profile
 export=vim
 eval "$(direnv hook zsh)"
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/opt/homebrew/share/zsh-completions:/opt/homebrew/share/zsh/site-functions:$fpath)
 fvim() {
   files=$(git ls-files) &&
   selected_files=$(echo "$files" | fzf -m --preview 'head -100 {}') &&
@@ -15,8 +15,8 @@ fvim() {
 }
 
 # completion
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 
 # gcloud
@@ -24,8 +24,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source $HOME/go/src/github.com/git/git/contrib/completion/git-completion.zsh
 #source $HOME/go/src/github.com/git/git/contrib/completion/git-prompt.sh
 
-# aws
-source ~/go/src/github.com/aws/aws-cli/bin/aws_zsh_completer.sh
 
 # direnv
 eval "$(direnv hook zsh)"
@@ -65,11 +63,25 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 # キーバインドをVi化
 bindkey -e
 
-autoload -U compinit
-compinit -u
+#autoload -U compinit
+#compinit -u
 setopt combiningchars
 
-source ~/.zsh/zplug.sh
+#source ~/.zsh/zplug.sh
+#source ~/.zsh/oh-my-zsh.sh
+
+export ZSH="$HOME/.zsh/oh-my-zsh"
+export ZSH_CUSTOM="$ZSH/custom"
+
+#ZSH_THEME="wedisagree"
+plugins=(git gitfast last-working-dir common-aliases history-substring-search fig fzf)
+source $ZSH/oh-my-zsh.sh
+export HOMEBREW_NO_ANALYTICS=1
+ZSH_DISABLE_COMPFIX=true
+
+unalias rm # No interactive rm by default (brought by plugins/common-aliases)
+unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
+
 
 # anyframeの設定
 fpath=($HOME/.zsh/anyframe(N-/) $fpath)
@@ -122,19 +134,19 @@ export LS_COLORS="di=36;49:ln=35;49:so=32;49:pi=33;47:ex=31;49:bd=34;46:cd=34;47
 zstyle ':completion:*' list-colors 'di=36;49' 'ln=35;49' 'so=32;49' 'pi=33;47' 'ex=31;49' 'bd=34;46' 'cd=34;47' 'su=30;41' 'sg=30;47'  'tw=37;45' 'ow=37;46'
 
 
-# エイリアス設定
-case "${OSTYPE}" in
-freebsd*|darwin*)
-    alias ls="ls -G -w"
-    ;;
-linux*)
-    alias ls="ls --color"
-    ;;
-esac
-
-alias la="ls -a"
-alias lf="ls -F"
-alias ll="ls -l"
+## エイリアス設定
+#case "${OSTYPE}" in
+#freebsd*|darwin*)
+#    alias ls="ls -G -w"
+#    ;;
+#linux*)
+#    alias ls="ls --color"
+#    ;;
+#esac
+#
+#alias la="ls -a"
+#alias lf="ls -F"
+#alias ll="ls -l"
 
 alias grep='grep --color'
 alias less='less -X -R'
@@ -146,6 +158,7 @@ alias venv="python -m venv"
 
 alias fstr='(){ find $1 -type f -print | xargs grep $2 }'
 alias fstr2='(){ find $1 -type f |grep $2 | xargs grep $3 }'
+alias tmux='tmux attach -t default || tmux new -s default'
 alias dirs='dirs -v'
 frepo() {
   local dir
@@ -579,14 +592,17 @@ setopt ZLE
 #  zprof
 #fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/haychie/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/haychie/google-cloud-sdk/path.zsh.inc'; fi
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+#if [ -f '/Users/haychie/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/haychie/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/haychie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/haychie/google-cloud-sdk/completion.zsh.inc'; fi
+#source "$(brew --prefix)/etc/bash_completion.d/aws_bash_completer"
+source ~/go/src/github.com/aws/aws-cli/bin/aws_zsh_completer.sh
+# if [ -f '/Users/haychie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/haychie/google-cloud-sdk/completion.zsh.inc'; fi
 
 # 初回シェル時のみ tmux実行
 if [ $SHLVL = 1 ]; then
