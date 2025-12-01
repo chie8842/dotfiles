@@ -6,7 +6,7 @@
 if has ("mouse")
     set mouse=a
     vmap <LeftRelease> "*ygv
-    set guioptions+=a
+    "set guioptions+=a
     "set ttymouse=xterm2
 endif
 
@@ -28,7 +28,7 @@ if has('gui_macvim') || has('mac')
     set isfname+=32
     set guifont=Ricty\ Regular\ for\ Powerline:h11
     set guifontwide=Ricty\ Regular\ for\ Powerline:h11
-    set imdisable
+    "set imdisable
     "set iminsert=2
     set imsearch=0
 endif

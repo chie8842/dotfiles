@@ -18,7 +18,7 @@ source $HOME/go/src/github.com/git/git/contrib/completion/git-completion.zsh
 source $HOME/go/src/github.com/git/git/contrib/completion/git-prompt.sh
 
 #poetry
-xport PATH="/Users/chie8842/.local/bin:$PATH
+xport PATH="/Users/chie.hayashida/.local/bin:$PATH
 
 # aws
 source ~/go/src/github.com/aws/aws-cli/bin/aws_bash_completer.sh

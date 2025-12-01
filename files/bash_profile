@@ -36,12 +36,12 @@ export PATH=$PATH:$GOROOT/bin:$HOME/go/bin
 # PATH=$PATH:~/.cargo/bin
 
 export PATH=$HOME/google-cloud-sdk/bin:$PATH
-export PATH=$PATH:$HOME/go/src/github.com/chie8842/flutter/bin
+export PATH=$PATH:$HOME/go/src/github.com/chie.hayashida/flutter/bin
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export PATH=$HOME/.gem/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
 
-export PATH='/Users/chie8842/.duckdb/cli/latest':$PATH
+export PATH='/Users/chie.hayashida/.duckdb/cli/latest':$PATH
 
