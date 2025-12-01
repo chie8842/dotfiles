@@ -6,7 +6,7 @@ fi
 if [ -f $ZPLUG_HOME/init.zsh ]; then
   source $ZPLUG_HOME/init.zsh
 
-  zplug "wbinglee/zsh-wakatime"
+#  zplug "wbinglee/zsh-wakatime"
 
   # syntax
   #zplug "chrissicool/zsh-256color"

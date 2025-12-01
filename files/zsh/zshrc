@@ -11,6 +11,7 @@ eval "$(direnv hook zsh)"
 setopt EXTENDED_GLOB
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+#fpath=(/opt/homebrew/share/zsh-completions:/opt/homebrew/share/zsh/site-functions:$fpath)
 fvim() {
   files=$(git ls-files) &&
   selected_files=$(echo "$files" | fzf -m --preview 'head -100 {}') &&
@@ -18,8 +19,8 @@ fvim() {
 }
 
 # completion
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Initialize completion before bash-based completers
 autoload -U compinit
@@ -99,7 +100,8 @@ local p_mark="%B%(?, %F{green}, %F{red})%#%f%b"
 if [ -n "$SSH_CONNECTION" ]; then
     PROMPT="%F{green}[%F{magenta}%n%F{green}@%F{cyan}%m%F{green}:%c]$p_mark"
 else
-    PROMPT="%F{green}[%c]$p_mark"
+    #PROMPT="%F{blue}[%c]$p_mark"
+    PROMPT="$p_mark"
 fi
 PROMPT2="%F{magenta}%_->%f"
 RPROMPT="%F{yellow}[%d]%f"
@@ -126,19 +128,19 @@ export LS_COLORS="di=36;49:ln=35;49:so=32;49:pi=33;47:ex=31;49:bd=34;46:cd=34;47
 zstyle ':completion:*' list-colors 'di=36;49' 'ln=35;49' 'so=32;49' 'pi=33;47' 'ex=31;49' 'bd=34;46' 'cd=34;47' 'su=30;41' 'sg=30;47'  'tw=37;45' 'ow=37;46'
 
 
-# エイリアス設定
-case "${OSTYPE}" in
-freebsd*|darwin*)
-    alias ls="ls -G -w"
-    ;;
-linux*)
-    alias ls="ls --color"
-    ;;
-esac
-
-alias la="ls -a"
-alias lf="ls -F"
-alias ll="ls -l"
+## エイリアス設定
+#case "${OSTYPE}" in
+#freebsd*|darwin*)
+#    alias ls="ls -G -w"
+#    ;;
+#linux*)
+#    alias ls="ls --color"
+#    ;;
+#esac
+#
+#alias la="ls -a"
+#alias lf="ls -F"
+#alias ll="ls -l"
 
 alias grep='grep --color'
 alias less='less -X -R'
@@ -150,6 +152,7 @@ alias venv="python -m venv"
 
 alias fstr='(){ find $1 -type f -print | xargs grep $2 }'
 alias fstr2='(){ find $1 -type f |grep $2 | xargs grep $3 }'
+alias tmux='tmux attach -t default || tmux new -s default'
 alias dirs='dirs -v'
 frepo() {
   local dir
@@ -585,14 +588,17 @@ load_zplug
 #  zprof
 #fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/haychie/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/haychie/google-cloud-sdk/path.zsh.inc'; fi
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+#if [ -f '/Users/haychie/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/haychie/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/haychie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/haychie/google-cloud-sdk/completion.zsh.inc'; fi
+#source "$(brew --prefix)/etc/bash_completion.d/aws_bash_completer"
+source ~/go/src/github.com/aws/aws-cli/bin/aws_zsh_completer.sh
+# if [ -f '/Users/haychie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/haychie/google-cloud-sdk/completion.zsh.inc'; fi
 
 # 初回シェル時のみ tmux実行
 if [ $SHLVL = 1 ]; then
