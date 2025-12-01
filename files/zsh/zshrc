@@ -1,11 +1,14 @@
 # zprof実行時に使う
 #zmodload zsh/zprof && zprof
 
-source ~/.bash_profile
+#source ~/.bash_profile
 
 # direnv
-export=vim
+export EDITOR=vim
 eval "$(direnv hook zsh)"
+
+# '#' '~' '^' といった文字をファイル名生成のパターンの一部として扱う
+setopt EXTENDED_GLOB
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 fvim() {
@@ -18,6 +21,15 @@ fvim() {
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Initialize completion before bash-based completers
+autoload -U compinit
+compinit -i -u
+autoload -Uz bashcompinit
+bashcompinit -i
+
+# aws completion (requires bashcompinit)
+source ~/go/src/github.com/aws/aws-cli/bin/aws_zsh_completer.sh
+
 
 # gcloud
 ## git
@@ -25,10 +37,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source $HOME/go/src/github.com/git/git/contrib/completion/git-prompt.sh
 
 # aws
-source ~/go/src/github.com/aws/aws-cli/bin/aws_zsh_completer.sh
-
-# direnv
-eval "$(direnv hook zsh)"
 
 # HISTORY
 HISTFILE=~/.zsh_history
@@ -65,16 +73,12 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 # キーバインドをVi化
 bindkey -e
 
-autoload -U compinit
-compinit -u
-setopt combiningchars
-
-source ~/.zsh/zplug.sh
-
 # anyframeの設定
-fpath=($HOME/.zsh/anyframe(N-/) $fpath)
-autoload -Uz anyframe-init
-anyframe-init
+if [[ -d "$HOME/.zsh/anyframe" ]]; then
+  fpath=("$HOME/.zsh/anyframe" $fpath)
+  autoload -Uz anyframe-init
+  anyframe-init
+fi
 
 bindkey '^x^b' anyframe-widget-checkout-git-branch
 bindkey '^x^g' anyframe-widget-cd-ghq-repository
@@ -93,7 +97,7 @@ autoload history-search-end
 local p_mark="%B%(?, %F{green}, %F{red})%#%f%b"
 
 if [ -n "$SSH_CONNECTION" ]; then
-    PROMPT="%F{green]}[%F{magenta}%n%F{green}@%F{cyan}%m%F{green}:%c]$p_mark"
+    PROMPT="%F{green}[%F{magenta}%n%F{green}@%F{cyan}%m%F{green}:%c]$p_mark"
 else
     PROMPT="%F{green}[%c]$p_mark"
 fi
@@ -205,7 +209,7 @@ setopt BAD_PATTERN
 setopt BANG_HIST
 
 # グロブパターンにおいて、末尾にあって'|'も'('も'~'も含まないならば、修飾子とみなす
-unsetopt BARE_GLOB_QUAL
+setopt BARE_GLOB_QUAL
 
 # 曖昧な補完の場合、補完関数が二度連続で呼ばれると自動的に選択肢をリストアップする このオプションは AUTO_LIST よりも強い優先度を持つ
 unsetopt BASH_AUTO_LIST
@@ -287,9 +291,6 @@ unsetopt ERR_RETURN
 
 # コマンドを実行する このオプションなしには、コマンドが読み込まれて構文エラーをチェックうするだけで、実行されない
 setopt EXEC
-
-# '#' '~' '^' といった文字をファイル名生成のパターンの一部として扱う
-unsetopt EXTENDED_GLOB
 
 # コマンドの開始時のタイムスタンプ(エポックからの秒数)と実行時間(秒単位)をヒストリに含める
 setopt EXTENDED_HISTORY
@@ -444,11 +445,8 @@ unsetopt MENU_COMPLETE
 # 複数のリダイレクションが行われるときに、暗黙に tee や cat が実行される
 setopt MULTIOS
 
-# ファイル名生成のパターンにマッチするものがない場合、引数リストをそのままにするのではなく、エラーを表示する
-setopt NOMATCH
-
-#
-set nonomatch
+# ファイル名生成のパターンにマッチしない場合もエラーにしない
+unsetopt NOMATCH
 
 # バックグラウンドジョブの状態の報告を、次のプロンプトを表示するまで待つのではなく、即座に行う
 setopt NOTIFY
@@ -573,6 +571,14 @@ unsetopt XTRACE
 # zsh line editor を利用する
 setopt ZLE
 
+# zplug (load with safe glob options)
+load_zplug() {
+  emulate -L zsh
+  setopt extended_glob bare_glob_qual
+  unsetopt nomatch sh_glob
+  source ~/.zsh/zplug.sh
+}
+load_zplug
 
 # zprof実行時に使う
 #if (which zprof > /dev/null 2>&1) ;then
@@ -592,3 +598,9 @@ if [ -f '/Users/haychie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/h
 if [ $SHLVL = 1 ]; then
   tmux a -t chie-no-session 
 fi
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

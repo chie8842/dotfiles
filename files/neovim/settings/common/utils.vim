@@ -39,6 +39,11 @@ set incsearch
 set wrapscan
 " 検索語をハイライト表示
 set hlsearch
+" ESC遅延・無反応対策: 端末エスケープシーケンスの待ち時間を短縮
+set ttimeout
+set ttimeoutlen=10    " ESC単体をすぐ判定
+set timeout
+set timeoutlen=500    " マップの待ち時間は程よく
 " Insertモード時のIME状態を保持しない
 "inoremap <ESC> <ESC>:set iminsert=0<CR>
 
@@ -73,8 +78,8 @@ if has('unix')
 "   autocmd BufRead ~/.mutt/tmp/* :set fileencoding=utf-8
 "   "w3mのフォームは改行コードDOSで編集
 "   autocmd BufRead ~/.w3m/w3mtmp* :set fileformat=dos
-"   "どのような言語でもペースト時自動インデントしない
-   autocmd BufRead * :set paste
+"   "どのような言語でもペースト時自動インデントしない（常時pasteは無効化）
+   set nopaste
 endif
 
 "開いているバッファのディレクトリに移動
@@ -95,9 +100,9 @@ if v:version >= 700
     autocmd QuickfixCmdPost l* lopen
     "M-gでGrepする
     if has('unix')
-        nmap <Esc>g :vimgrep  %<LEFT><LEFT>
-        nmap <Esc>f :cn<CR>
-        nmap <Esc>b :cp<CR>
+        nmap <Leader>g :vimgrep  %<LEFT><LEFT>
+        nmap <Leader>f :cn<CR>
+        nmap <Leader>b :cp<CR>
     elseif has('win32')
         nmap <M-g> :vimgrep  %<LEFT><LEFT>
         "M-P,Nで候補移動
@@ -158,4 +163,3 @@ endif
 "        \ exec "silent !xattr -w com.apple.TextEncoding 'SHIFT_JIS;2561' \"%\"" |
 "        \ endif
 "endif
-

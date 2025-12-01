@@ -17,6 +17,9 @@ if [ -f '/Users/chiehayashida/google-cloud-sdk/completion.bash.inc' ]; then . '/
 source $HOME/go/src/github.com/git/git/contrib/completion/git-completion.zsh
 source $HOME/go/src/github.com/git/git/contrib/completion/git-prompt.sh
 
+#poetry
+xport PATH="/Users/chie8842/.local/bin:$PATH
+
 # aws
 source ~/go/src/github.com/aws/aws-cli/bin/aws_bash_completer.sh
 
@@ -24,3 +27,5 @@ source ~/go/src/github.com/aws/aws-cli/bin/aws_bash_completer.sh
 eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"

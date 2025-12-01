@@ -54,5 +54,5 @@ set wildcharm=<TAB>
 if has('gui')
     nmap <M-l> :emenu <TAB>
 else
-    nmap <ESC>l :emenu <TAB>
+    nmap <Leader>l :emenu <TAB>
 endif

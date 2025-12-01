@@ -2,6 +2,18 @@ if &compatible
   set nocompatible
 endif
 
+" Airline configuration
+" Load only specific extensions to avoid duplicate registrations
+let g:airline_extensions = ['tabline', 'branch']
+let g:airline_theme='simple'
+let g:airline_powerline_fonts=1
+set laststatus=2 " Always show statusline
+
+" NOTE: Avoid explicitly reloading airline extensions here to prevent
+" duplicate funcref warnings like "has already been added". Airline will
+" load extensions based on settings above during plugin startup.
+
+
 " dein自体の自動インストール
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.vim') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
@@ -11,7 +23,8 @@ if !isdirectory(s:dein_repo_dir)
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
-set runtimepath+=~/go/src/github.com/Shougo/dein.vim
+" dein.vim is already prepended to &runtimepath above; avoid duplicating it
+" set runtimepath+=~/go/src/github.com/Shougo/dein.vim
 "set rtp+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
 
 " deinプラグインインストール
@@ -33,12 +46,15 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
+
+
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
 endif
 
-set rtp+=/usr/local/opt/fzf
+" fzf is managed by dein; avoid adding Homebrew path to &rtp twice
+" set rtp+=/usr/local/opt/fzf
 
 " common
 filetype plugin indent on

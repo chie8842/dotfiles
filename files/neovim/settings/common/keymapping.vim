@@ -1,3 +1,5 @@
+let mapleader = "\<Space>"
+
 "==============================================
 " settings for keymapping 
 "==============================================
@@ -80,8 +82,8 @@ nmap ,cel :%s:^$\n:<CR>
 nmap ,ccl :%s:^\("\\|#\\\|\*\).*$\n:<CR>
 ",cdで現在編集中のファイルのあるディレクトリに変更
 nmap ,cd :cd %:h<CR>
-" ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" <Leader><CR>でハイライト解除
+nmap <Leader><CR> :nohlsearch<CR><Esc>
 
 "Tab操作
 "15までタブを開く
@@ -89,12 +91,12 @@ set tabpagemax=15
 "タブラインを常に表示する
 "set showtabline=2
 if has('unix')
-    nmap <ESC>t :tabnew<CR>
-    nmap <ESC>e :tabnew ./<CR>
-    nmap <ESC>n :tabn<CR>
-    nmap <ESC>p :tabp<CR>
-    nmap <ESC>o :tabo<CR>
-    nmap <ESC>d :tabd
+    nmap <Leader>t :tabnew<CR>
+    nmap <Leader>e :tabnew ./<CR>
+    nmap <Leader>n :tabn<CR>
+    nmap <Leader>p :tabp<CR>
+    nmap <Leader>o :tabo<CR>
+    nmap <Leader>d :tabd
     if has('gui')
         nmap <M-t> :tabnew<CR>
         nmap <M-e> :tabnew ./<CR>
@@ -140,6 +142,8 @@ nnoremap k gk
 
 "挿入モードで<C-C>でESCと同義
 inoremap <C-C> <ESC>
+" 挿入モードでのESCを確実に通常モードへ（補完メニュー表示時も対応）
+inoremap <silent><expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 "挿入モードで",date",',time'で日付、時刻挿入
 inoremap ,date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
 inoremap ,time <C-R>=strftime('%H:%M')<CR>
@@ -183,3 +187,6 @@ imap <C-G>h <Left>
 "imap <c-k> <Up>
 imap <C-G>l <Right>
 "imap <C-G>h <BS>
+
+" ターミナルバッファからESCでノーマルモードへ戻る
+tnoremap <Esc> <C-\><C-n>
